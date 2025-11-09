@@ -57,7 +57,8 @@ app = FastAPI(
 )
 
 # CORS configuration
-CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000,https://mednex-frontend.onrender.com").split(",")
+logger.info(f"CORS Origins configured: {CORS_ORIGINS}")
 
 app.add_middleware(
     CORSMiddleware,
