@@ -31,7 +31,9 @@ export interface ApiError {
 
 export interface TermExplanation {
   term: string;
-  explanation: string;
+  definition?: string;
+  explanation?: string;
+  source?: string;
   category?: string;
   related_terms?: string[];
 }

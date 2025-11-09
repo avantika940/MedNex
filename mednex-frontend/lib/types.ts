@@ -129,9 +129,10 @@ export interface ExplanationPanelProps {
 // Explanation Types
 export interface TermExplanation {
   term: string;
-  definition: string;
-  source: string;
-  related_terms: string[];
+  definition?: string;
+  explanation?: string;
+  source?: string;
+  related_terms?: string[];
 }
 
 // Application State

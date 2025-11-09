@@ -88,6 +88,10 @@ models/cache/
 # Jupyter Notebooks
 .ipynb_checkpoints
 
-# Python lib directories (but allow frontend lib)
-**/lib/
+# Python lib directories (be specific, not broad)
+mednex-backend/lib/
+**/site-packages/
+**/Lib/
+
+# Explicitly allow frontend lib
 !mednex-frontend/lib/
