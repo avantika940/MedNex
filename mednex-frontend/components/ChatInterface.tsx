@@ -9,8 +9,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, AlertTriangle } from 'lucide-react';
-import { api } from '@/lib/api';
-import { ChatMessage, ChatResponse, ApiError } from '@/lib/types';
+import { api } from '../lib/api';
+import { ChatMessage, ChatResponse, ApiError } from '../lib/types';
 
 interface ChatInterfaceProps {
   onSymptomsUpdate: (symptoms: string[]) => void;

@@ -8,12 +8,12 @@
 
 import React, { useState } from 'react';
 import { Brain, Activity, AlertTriangle, Shield } from 'lucide-react';
-import ChatInterface from '@/components/ChatInterface';
-import KnowledgeGraph from '@/components/KnowledgeGraph';
-import ResultsDisplay from '@/components/ResultsDisplay';
-import ExplanationPanel from '@/components/ExplanationPanel';
-import { api } from '@/lib/api';
-import { DiseaseResult, TermExplanation } from '@/lib/types';
+import ChatInterface from '../../components/ChatInterface';
+import KnowledgeGraph from '../../components/KnowledgeGraph';
+import ResultsDisplay from '../../components/ResultsDisplay';
+import ExplanationPanel from '../../components/ExplanationPanel';
+import { api } from '../../lib/api';
+import { DiseaseResult, TermExplanation } from '../../lib/types';
 
 export default function DiagnosisPage() {
   // Application state
