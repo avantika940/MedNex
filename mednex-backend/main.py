@@ -25,6 +25,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Apply production optimizations
+try:
+    from production_config import optimize_for_production
+    optimize_for_production()
+except ImportError:
+    logger.info("Production config not available, using default settings")
+
 # Import routers
 try:
     from routers import symptoms, prediction, graph, explanation, chat

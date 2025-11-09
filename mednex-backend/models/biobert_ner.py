@@ -5,11 +5,18 @@ This module uses BioBERT (dmis-lab/biobert-v1.1) to extract medical entities
 from user text input, focusing on symptoms, diseases, and body parts.
 """
 
-import torch
-from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 import logging
 import re
 from typing import Dict, List, Any
+
+# Try to import ML libraries, fallback gracefully if not available
+try:
+    import torch
+    from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
+    HAS_TRANSFORMERS = True
+except ImportError:
+    HAS_TRANSFORMERS = False
+    torch = None
 
 logger = logging.getLogger(__name__)
 
@@ -25,43 +32,59 @@ class BioBERTExtractor:
         self._load_model()
     
     def _load_model(self):
-        """Load BioBERT model and create NER pipeline"""
+        """Load BioBERT model and create NER pipeline with memory optimization"""
+        # Check if transformers is available
+        if not HAS_TRANSFORMERS:
+            logger.warning("Transformers library not available. Using rule-based extraction.")
+            self._load_fallback_model()
+            return
+            
         try:
+            # Check if we're in a memory-constrained environment (like Render free tier)
+            import os
+            is_production = os.getenv("DEBUG", "True").lower() == "false"
+            
+            if is_production or os.getenv("RENDER") == "true":
+                logger.warning("Production/memory-constrained environment detected. Using rule-based extraction.")
+                self._load_fallback_model()
+                return
+            
             logger.info(f"Loading BioBERT model: {self.model_name}")
             
-            # Load tokenizer and model
-            self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-            self.model = AutoModelForTokenClassification.from_pretrained(self.model_name)
+            # Load tokenizer and model with memory optimization
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                self.model_name,
+                use_fast=True,
+                model_max_length=512  # Limit sequence length
+            )
+            self.model = AutoModelForTokenClassification.from_pretrained(
+                self.model_name,
+                torch_dtype=torch.float16 if torch and torch.cuda.is_available() else None,
+                low_cpu_mem_usage=True
+            )
             
-            # Create NER pipeline
+            # Create NER pipeline with memory constraints
             self.ner_pipeline = pipeline(
                 "ner",
                 model=self.model,
                 tokenizer=self.tokenizer,
                 aggregation_strategy="simple",
-                device=0 if torch.cuda.is_available() else -1
+                device=0 if torch and torch.cuda.is_available() else -1,
+                max_length=512,
+                truncation=True
             )
             
             logger.info("BioBERT model loaded successfully")
             
         except Exception as e:
             logger.error(f"Failed to load BioBERT model: {str(e)}")
-            # Fallback to a simpler approach if BioBERT fails
+            logger.info("Falling back to rule-based extraction")
             self._load_fallback_model()
     
     def _load_fallback_model(self):
-        """Load a fallback NER model if BioBERT fails"""
-        try:
-            logger.info("Loading fallback NER model")
-            self.ner_pipeline = pipeline(
-                "ner",
-                model="dbmdz/bert-large-cased-finetuned-conll03-english",
-                aggregation_strategy="simple"
-            )
-            logger.info("Fallback model loaded successfully")
-        except Exception as e:
-            logger.error(f"Failed to load fallback model: {str(e)}")
-            self.ner_pipeline = None
+        """Use rule-based extraction instead of ML models to save memory"""
+        logger.info("Using rule-based medical entity extraction (memory-optimized)")
+        self.ner_pipeline = None  # No ML pipeline, use rule-based approach
     
     def extract_entities(self, text: str) -> Dict[str, Any]:
         """
