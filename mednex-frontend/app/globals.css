@@ -1,0 +1,485 @@
+@import "tailwindcss";
+
+/* Dynamic gradient backgrounds */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-primary {
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #74b9ff, #00b894);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+.gradient-medical {
+  background: linear-gradient(45deg, #4facfe, #00f2fe, #43e97b, #38f9d7);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Glass morphism effects */
+.glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  color: #1a1a1a;
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Floating animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse animation for medical icons */
+@keyframes pulse-medical {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.pulse-medical {
+  animation: pulse-medical 2s ease-in-out infinite;
+}
+
+/* Scroll animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Professional button styles */
+.btn-professional {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transition: all 0.3s ease;
+}
+
+.btn-professional:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Navigation styles */
+.nav-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Medical themed colors */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --medical-primary: #4facfe;
+  --medical-secondary: #00f2fe;
+  --medical-accent: #43e97b;
+  --medical-warning: #ff6b6b;
+  --medical-success: #51cf66;
+  --medical-dark: #1a1a1a;
+  --medical-light: #f8fafc;
+}
+
+/* Theme variables */
+html {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --medical-primary: #5bb6ff;
+    --medical-secondary: #1ffaff;
+    --medical-accent: #4eff8a;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Text color overrides for better readability */
+.glass-card h1,
+.glass-card h2,
+.glass-card h3,
+.glass-card h4,
+.glass-card h5,
+.glass-card h6 {
+  color: #1a1a1a !important;
+  font-weight: 700;
+}
+
+.glass-card p,
+.glass-card span,
+.glass-card div,
+.glass-card .text-white,
+.glass-card .text-blue-100,
+.glass-card .text-blue-200,
+.glass-card .text-blue-300,
+.glass-card .text-gray-500,
+.glass-card .text-gray-600,
+.glass-card .text-gray-400 {
+  color: #2d3748 !important;
+}
+
+/* Override light text colors on glass/card backgrounds */
+.glass-card .text-white,
+.results-card .text-white,
+[class*="glass"] .text-white,
+[class*="bg-white"] .text-white,
+[class*="backdrop"] .text-white {
+  color: #1a1a1a !important;
+}
+
+/* Blue text overrides for better contrast */
+.glass-card .text-blue-100,
+.glass-card .text-blue-200,
+.glass-card .text-blue-300,
+.results-card .text-blue-100,
+.results-card .text-blue-200,
+.results-card .text-blue-300,
+[class*="glass"] .text-blue-100,
+[class*="glass"] .text-blue-200,
+[class*="glass"] .text-blue-300 {
+  color: #2563eb !important;
+}
+
+/* Gray text overrides for better contrast */
+.glass-card .text-gray-400,
+.glass-card .text-gray-500,
+.glass-card .text-gray-600,
+.results-card .text-gray-400,
+.results-card .text-gray-500,
+.results-card .text-gray-600,
+[class*="glass"] .text-gray-400,
+[class*="glass"] .text-gray-500,
+[class*="glass"] .text-gray-600 {
+  color: #374151 !important;
+}
+
+/* Chat interface text improvements */
+.chat-message {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #1a1a1a !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.chat-message .text-white,
+.chat-message .text-blue-100,
+.chat-message .text-gray-500 {
+  color: #2d3748 !important;
+}
+
+.chat-input {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #1a1a1a !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.chat-input::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Results display text */
+.results-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #1a1a1a !important;
+}
+
+/* Card backgrounds with better text contrast */
+.bg-white.bg-opacity-20 .text-white,
+.bg-white.bg-opacity-30 .text-white,
+[class*="bg-opacity"] .text-white {
+  color: #1a1a1a !important;
+}
+
+/* History page specific overrides */
+.gradient-secondary .text-white,
+.gradient-primary .text-white,
+.gradient-medical .text-white {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-secondary .text-blue-100,
+.gradient-primary .text-blue-100,
+.gradient-medical .text-blue-100 {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Button text improvements */
+.btn-professional {
+  color: white !important;
+}
+
+/* Disclaimer text - keep warning colors but make readable */
+.disclaimer-text {
+  color: #744210 !important;
+  background: rgba(255, 235, 59, 0.2) !important;
+}
+
+/* Navigation text */
+.nav-glass a,
+.nav-glass span {
+  color: #1a1a1a !important;
+}
+
+/* Placeholder text improvements */
+.placeholder-blue-200::placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Comprehensive text contrast fixes */
+
+/* Dialog and modal text fixes */
+[role="dialog"] .text-white,
+[role="dialog"] .text-blue-100,
+[role="dialog"] .text-gray-500 {
+  color: #1a1a1a !important;
+}
+
+/* Any card-like element with semi-transparent background */
+[class*="backdrop-blur"] .text-white,
+[class*="backdrop-blur"] .text-blue-100,
+[class*="backdrop-blur"] .text-blue-200,
+[class*="backdrop-blur"] .text-gray-400,
+[class*="backdrop-blur"] .text-gray-500 {
+  color: #1a1a1a !important;
+}
+
+/* Loading states */
+.text-gray-500.animate-spin {
+  color: #6b7280 !important;
+}
+
+/* Time stamps and meta text */
+.text-xs.text-gray-500 {
+  color: #6b7280 !important;
+}
+
+/* Interactive elements that should remain white on colored backgrounds */
+.bg-blue-500 .text-white,
+.bg-blue-600 .text-white,
+.bg-red-600 .text-white,
+.bg-green-600 .text-white,
+.btn-professional .text-white {
+  color: #ffffff !important;
+}
+
+/* Special handling for gradient backgrounds with proper text shadows */
+.gradient-primary *,
+.gradient-secondary *,
+.gradient-medical * {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Override any remaining light text on light backgrounds */
+[class*="bg-white"][class*="bg-opacity"] .text-blue-100,
+[class*="bg-white"][class*="bg-opacity"] .text-blue-200,
+[class*="bg-white"][class*="bg-opacity"] .text-blue-300,
+[class*="bg-white"][class*="bg-opacity"] .text-gray-400,
+[class*="bg-white"][class*="bg-opacity"] .text-gray-500 {
+  color: #374151 !important;
+}
+
+/* Comprehensive text visibility fixes for forms, dropdowns, and dull text */
+
+/* Input and form element text fixes */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select,
+.bg-white.bg-opacity-20 input,
+.bg-white.bg-opacity-30 input,
+[class*="bg-opacity"] input,
+[class*="bg-opacity"] select,
+[class*="bg-opacity"] textarea {
+  color: #1a1a1a !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Placeholder text fixes */
+input::placeholder,
+textarea::placeholder,
+.placeholder-blue-200::placeholder,
+[class*="placeholder-"]::placeholder {
+  color: #6b7280 !important;
+  opacity: 0.8;
+}
+
+/* Select dropdown options */
+select option {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+}
+
+/* Form labels and helper text */
+label,
+.form-label,
+.text-gray-400,
+.text-gray-500,
+.text-gray-600,
+.text-blue-200,
+.text-blue-300 {
+  color: #374151 !important;
+}
+
+/* Search and filter text */
+.search-text,
+[class*="search"] .text-gray-400,
+[class*="filter"] .text-gray-400 {
+  color: #4b5563 !important;
+}
+
+/* Override very light text colors */
+.text-blue-100,
+.text-blue-200,
+.text-blue-300,
+.text-gray-300,
+.text-gray-400 {
+  color: #374151 !important;
+}
+
+/* Ensure buttons with light backgrounds have dark text */
+button.bg-white,
+button[class*="bg-white"],
+.btn-light {
+  color: #1a1a1a !important;
+}
+
+/* History page specific fixes */
+.history-search input,
+.history-filter select {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #1a1a1a !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Stats and metrics text */
+.stats-text,
+.metric-label,
+.count-text {
+  color: #1f2937 !important;
+  font-weight: 600;
+}
+
+/* Dropdown and select styling improvements */
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") !important;
+  background-position: right 0.5rem center !important;
+  background-repeat: no-repeat !important;
+  background-size: 1.5em 1.5em !important;
+  appearance: none !important;
+}
+
+/* Icon colors for better visibility */
+.lucide,
+svg {
+  color: inherit;
+}
+
+/* Ensure text remains visible on gradient backgrounds */
+.gradient-primary .text-white,
+.gradient-secondary .text-white,
+.gradient-medical .text-white {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 500;
+}
+
+/* Glass card content text improvements */
+.glass-card .text-gray-400,
+.glass-card .text-gray-500,
+.glass-card .text-blue-200,
+.glass-card .text-blue-300 {
+  color: #1f2937 !important;
+  font-weight: 500;
+}
+
+/* Search results and list items */
+.search-result,
+.list-item,
+.history-item {
+  color: #1f2937 !important;
+}
+
+/* Ensure all text in cards is readable */
+.card-text,
+.description-text,
+.helper-text {
+  color: #374151 !important;
+  line-height: 1.5;
+}
+
+/* Override any remaining light text */
+*[class*="text-gray-3"],
+*[class*="text-gray-4"],
+*[class*="text-blue-1"],
+*[class*="text-blue-2"] {
+  color: #374151 !important;
+}
+
+/* Focus states for better accessibility */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  color: #1a1a1a !important;
+}

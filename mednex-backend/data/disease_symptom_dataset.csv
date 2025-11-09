@@ -1,0 +1,257 @@
+Disease,Symptom_1,Symptom_2,Symptom_3,Symptom_4,Description,Treatment
+Common Cold,runny nose,cough,sore throat,congestion,Viral infection affecting nose and throat,Rest fluids over-the-counter medications
+Influenza,fever,body aches,fatigue,cough,Respiratory illness caused by influenza viruses,Rest fluids antiviral medications if prescribed
+Migraine,headache,sensitivity to light,nausea,visual disturbances,Severe headache often with nausea and light sensitivity,Pain relievers rest in dark room avoid triggers
+Food Poisoning,nausea,vomiting,diarrhea,stomach cramps,Illness caused by consuming contaminated food,Hydration bland diet medical attention if severe
+Allergic Reaction,rash,itching,swelling,difficulty breathing,Immune system reaction to allergens,Avoid allergens antihistamines medical evaluation
+Anxiety,worry,restlessness,rapid heartbeat,sweating,Mental health condition characterized by excessive worry,Therapy relaxation techniques medical consultation
+Hypertension,high blood pressure,headache,dizziness,chest pain,Condition where blood pressure is consistently high,Lifestyle changes medication as prescribed
+Diabetes,frequent urination,excessive thirst,blurred vision,fatigue,Metabolic disorder affecting blood sugar levels,Diet management exercise medication as prescribed
+Asthma,shortness of breath,wheezing,cough,chest tightness,Respiratory condition causing breathing difficulties,Inhalers avoid triggers medical management
+Gastritis,stomach pain,bloating,acid reflux,nausea,Inflammation of stomach lining,Dietary changes medications avoid irritants
+Insomnia,difficulty sleeping,fatigue,irritability,concentration problems,Sleep disorder preventing adequate rest,Sleep hygiene stress management medical evaluation
+Depression,sadness,loss of interest,fatigue,changes in appetite,Mental health condition affecting mood and behavior,Therapy lifestyle changes medical consultation
+Bronchitis,persistent cough,mucus production,chest discomfort,shortness of breath,Inflammation of bronchial tubes,Rest fluids cough suppressants medical care
+Pneumonia,fever,chills,cough with phlegm,difficulty breathing,Infection that inflames air sacs in lungs,Antibiotics rest fluids medical treatment
+Sinusitis,facial pain,nasal congestion,thick nasal discharge,reduced sense of smell,Inflammation of sinus cavities,Decongestants nasal irrigation antibiotics if bacterial
+Strep Throat,sore throat,fever,swollen lymph nodes,difficulty swallowing,Bacterial infection of throat and tonsils,Antibiotics rest throat lozenges pain relievers
+Urinary Tract Infection,burning urination,frequent urination,pelvic pain,cloudy urine,Bacterial infection of urinary system,Antibiotics increased fluid intake cranberry juice
+Arthritis,joint pain,stiffness,swelling,reduced mobility,Inflammation of joints causing pain and stiffness,Anti-inflammatory medications physical therapy exercise
+Osteoporosis,bone pain,fractures,height loss,stooped posture,Bone density loss leading to fragile bones,Calcium vitamin D weight-bearing exercise medications
+Acid Reflux,heartburn,chest pain,regurgitation,difficulty swallowing,Stomach acid flowing back into esophagus,Antacids dietary changes avoid triggers medication
+Constipation,infrequent bowel movements,hard stools,abdominal pain,bloating,Difficulty passing stools regularly,Increased fiber fluids exercise laxatives if needed
+Diarrhea,loose stools,frequent bowel movements,abdominal cramps,dehydration,Frequent passage of loose watery stools,Hydration BRAT diet probiotics medical attention if severe
+Irritable Bowel Syndrome,abdominal pain,bloating,changes in bowel habits,gas,Functional disorder affecting large intestine,Dietary modifications stress management medications
+Gallstones,severe abdominal pain,nausea,vomiting,jaundice,Hardened deposits in gallbladder,Pain management dietary changes surgery if severe
+Kidney Stones,severe back pain,nausea,vomiting,blood in urine,Hard deposits forming in kidneys,Pain management increased fluids medical intervention
+Anemia,fatigue,weakness,pale skin,shortness of breath,Low red blood cell count or hemoglobin,Iron supplements dietary changes treat underlying cause
+Hypothyroidism,fatigue,weight gain,cold intolerance,dry skin,Underactive thyroid gland producing insufficient hormones,Thyroid hormone replacement medication regular monitoring
+Hyperthyroidism,weight loss,rapid heartbeat,nervousness,sweating,Overactive thyroid gland producing excess hormones,Anti-thyroid medications radioactive iodine surgery
+Eczema,itchy skin,redness,dry patches,inflammation,Chronic skin condition causing inflammation,Moisturizers topical corticosteroids avoid triggers
+Psoriasis,scaly patches,redness,itching,joint pain,Autoimmune skin condition with rapid cell turnover,Topical treatments phototherapy systemic medications
+Acne,pimples,blackheads,whiteheads,inflammation,Skin condition affecting hair follicles and oil glands,Topical treatments oral medications good hygiene
+Rosacea,facial redness,bumps,burning sensation,eye irritation,Chronic inflammatory skin condition,Topical medications oral antibiotics avoid triggers
+Conjunctivitis,red eyes,itching,discharge,tearing,Inflammation of eye membrane,Artificial tears antihistamines antibiotics if bacterial
+Glaucoma,eye pain,blurred vision,halos around lights,nausea,Increased pressure in eye damaging optic nerve,Eye drops laser treatment surgery medication
+Cataracts,cloudy vision,glare sensitivity,double vision,fading colors,Clouding of eye lens affecting vision,Surgery to replace clouded lens
+Macular Degeneration,blurred central vision,dark spots,difficulty reading,color perception changes,Deterioration of central retina,Anti-VEGF injections vitamins lifestyle changes
+Otitis Media,ear pain,hearing loss,fever,discharge,Middle ear infection often in children,Antibiotics pain relievers warm compress
+Vertigo,dizziness,spinning sensation,nausea,balance problems,Inner ear disorder affecting balance,Vestibular exercises medications repositioning maneuvers
+Tinnitus,ringing in ears,buzzing sounds,hearing difficulty,irritability,Perception of sound without external source,Hearing aids sound therapy underlying condition treatment
+Sleep Apnea,loud snoring,gasping during sleep,daytime fatigue,morning headaches,Breathing interruption during sleep,CPAP machine weight loss surgery
+Restless Leg Syndrome,leg discomfort,urge to move legs,symptoms worse at night,sleep disruption,Neurological disorder causing leg sensations,Iron supplements medications lifestyle changes
+Fibromyalgia,widespread pain,fatigue,sleep problems,cognitive difficulties,Chronic pain condition affecting soft tissues,Pain medications exercise stress management
+Chronic Fatigue Syndrome,extreme fatigue,muscle pain,sleep problems,concentration difficulties,Persistent unexplained fatigue lasting months,Symptom management paced activity sleep hygiene
+Carpal Tunnel Syndrome,hand numbness,tingling,weakness,pain in wrist,Compressed nerve in wrist causing symptoms,Wrist splints exercises surgery if severe
+Tendonitis,pain,swelling,stiffness,tenderness,Inflammation of tendons connecting muscle to bone,Rest ice anti-inflammatory medications physical therapy
+Bursitis,joint pain,swelling,limited motion,tenderness,Inflammation of fluid-filled sacs cushioning joints,Rest ice anti-inflammatory medications steroid injections
+Sciatica,lower back pain,leg pain,numbness,tingling,Pain along sciatic nerve from lower back to leg,Physical therapy pain medications exercise
+Herniated Disc,back pain,leg pain,numbness,weakness,Spinal disc pressing on nerves,Physical therapy pain medications surgery if severe
+Spinal Stenosis,back pain,leg pain,numbness,walking difficulty,Narrowing of spinal canal compressing nerves,Physical therapy medications epidural injections surgery
+Plantar Fasciitis,heel pain,foot stiffness,pain worse in morning,arch pain,Inflammation of foot tissue connecting heel to toes,Stretching exercises orthotic devices physical therapy
+Shin Splints,lower leg pain,tenderness,swelling,pain during activity,Pain along shinbone from overuse,Rest ice proper footwear gradual activity return
+Tennis Elbow,elbow pain,weakness,pain with gripping,stiffness,Overuse injury of elbow tendons,Rest physical therapy anti-inflammatory medications
+Golfer's Elbow,inner elbow pain,weakness,stiffness,forearm pain,Overuse injury affecting inner elbow tendons,Rest ice physical therapy anti-inflammatory medications
+Rotator Cuff Injury,shoulder pain,weakness,limited motion,pain at night,Damage to shoulder muscles and tendons,Physical therapy rest surgery if severe
+Frozen Shoulder,shoulder stiffness,pain,limited range of motion,difficulty sleeping,Inflammation and scarring of shoulder capsule,Physical therapy steroid injections gradual improvement
+Whiplash,neck pain,stiffness,headache,dizziness,Neck injury from sudden head movement,Pain medications physical therapy rest
+Cervical Spondylosis,neck pain,stiffness,headache,arm numbness,Age-related wear of cervical spine,Physical therapy medications pain management
+Temporomandibular Joint Disorder,jaw pain,clicking sounds,difficulty chewing,ear pain,Problems with jaw joint and muscles,Jaw exercises pain medications bite guards
+Canker Sores,mouth ulcers,pain,difficulty eating,burning sensation,Small painful sores inside mouth,Topical medications pain relievers avoid triggers
+Cold Sores,lip blisters,tingling,burning,pain,Viral infection causing sores around mouth,Antiviral medications topical treatments rest
+Gingivitis,gum inflammation,bleeding gums,bad breath,tender gums,Early stage of gum disease,Good oral hygiene professional cleaning antibiotics
+Periodontitis,gum recession,loose teeth,bad breath,pus between teeth,Advanced gum disease affecting supporting structures,Deep cleaning scaling surgery antibiotics
+Tooth Abscess,severe toothache,swelling,fever,bad taste,Infected tooth causing pus formation,Antibiotics root canal extraction pain medications
+Heartburn,burning chest pain,acid taste,difficulty swallowing,cough,Stomach acid irritating esophagus,Antacids lifestyle changes avoid triggers medications
+Peptic Ulcer,stomach pain,nausea,bloating,loss of appetite,Sores in stomach lining or small intestine,Antibiotics acid reducers dietary changes
+Inflammatory Bowel Disease,abdominal pain,diarrhea,weight loss,fatigue,Chronic inflammation of digestive tract,Anti-inflammatory medications dietary changes surgery
+Celiac Disease,abdominal pain,diarrhea,weight loss,fatigue,Autoimmune reaction to gluten protein,Strict gluten-free diet nutritional supplements
+Lactose Intolerance,abdominal pain,bloating,gas,diarrhea,Inability to digest lactose sugar,Lactose-free diet enzyme supplements dietary modifications
+Hemorrhoids,rectal pain,bleeding,itching,swelling,Swollen veins in rectum or anus,Topical treatments dietary changes surgery if severe
+Anal Fissure,severe pain during bowel movements,bleeding,itching,muscle spasms,Small tear in anal canal lining,Topical medications sitz baths dietary fiber
+Diverticulitis,abdominal pain,fever,nausea,changes in bowel habits,Inflammation of small pouches in colon,Antibiotics liquid diet pain medications
+Appendicitis,severe abdominal pain,nausea,vomiting,fever,Inflammation of appendix requiring immediate treatment,Emergency surgery antibiotics hospitalization
+Cholecystitis,severe upper abdominal pain,nausea,vomiting,fever,Inflammation of gallbladder,Surgery antibiotics pain management dietary changes
+Pancreatitis,severe abdominal pain,nausea,vomiting,fever,Inflammation of pancreas,Hospitalization pain management dietary changes enzyme supplements
+Hepatitis,fatigue,nausea,abdominal pain,jaundice,Liver inflammation often from viral infection,Rest antiviral medications avoid alcohol supportive care
+Cirrhosis,fatigue,abdominal swelling,jaundice,confusion,Scarring of liver from chronic damage,Treat underlying cause dietary changes medications transplant
+Kidney Disease,fatigue,swelling,changes in urination,high blood pressure,Progressive loss of kidney function,Dietary changes medications dialysis transplant
+Bladder Infection,burning urination,frequent urination,pelvic pain,cloudy urine,Bacterial inflammation of bladder,Antibiotics increased fluids cranberry products
+Prostate Enlargement,difficulty urinating,frequent urination,weak stream,incomplete emptying,Non-cancerous enlargement of prostate gland,Medications surgery lifestyle changes
+Erectile Dysfunction,difficulty achieving erection,difficulty maintaining erection,reduced sexual desire,performance anxiety,Inability to achieve or maintain erection,Medications lifestyle changes counseling medical devices
+Menstrual Disorders,irregular periods,heavy bleeding,severe cramps,mood changes,Abnormalities in menstrual cycle,Hormonal treatments pain medications lifestyle changes
+Endometriosis,pelvic pain,heavy periods,pain during intercourse,infertility,Uterine lining growing outside uterus,Hormonal treatments pain medications surgery
+Polycystic Ovary Syndrome,irregular periods,weight gain,excessive hair growth,acne,Hormonal disorder affecting ovaries,Hormonal treatments lifestyle changes medications
+Menopause,hot flashes,night sweats,mood changes,irregular periods,Natural cessation of menstrual cycles,Hormone therapy lifestyle changes symptom management
+Osteoarthritis,joint pain,stiffness,swelling,reduced range of motion,Cartilage breakdown in joints,Pain medications physical therapy weight management
+Rheumatoid Arthritis,joint pain,swelling,morning stiffness,fatigue,Autoimmune disease attacking joints,Disease-modifying drugs anti-inflammatory medications
+Gout,severe joint pain,swelling,redness,warmth,Uric acid crystal deposits in joints,Anti-inflammatory medications dietary changes lifestyle modifications
+Lupus,joint pain,skin rashes,fatigue,fever,Autoimmune disease affecting multiple organs,Immunosuppressive medications anti-inflammatory drugs
+Multiple Sclerosis,fatigue,numbness,weakness,vision problems,Autoimmune disease affecting central nervous system,Disease-modifying therapies symptom management rehabilitation
+Parkinson's Disease,tremors,slowness of movement,stiffness,balance problems,Progressive neurological disorder,Medications physical therapy speech therapy
+Alzheimer's Disease,memory loss,confusion,personality changes,difficulty with daily tasks,Progressive brain disorder affecting memory and thinking,Medications supportive care safety measures
+Stroke,sudden weakness,speech problems,vision loss,severe headache,Brain damage from interrupted blood supply,Emergency treatment rehabilitation medications prevention
+Epilepsy,seizures,loss of consciousness,confusion,muscle jerks,Neurological disorder causing recurrent seizures,Anti-seizure medications lifestyle modifications
+Neuropathy,numbness,tingling,burning pain,weakness,Damage to peripheral nerves,Pain medications physical therapy treat underlying cause
+Bell's Palsy,facial weakness,drooping,difficulty closing eye,taste changes,Temporary facial paralysis from nerve inflammation,Corticosteroids eye protection physical therapy
+Carpal Tunnel,hand numbness,tingling,weakness,pain radiating to arm,Nerve compression in wrist,Wrist splints exercises surgery anti-inflammatory medications
+Meningitis,severe headache,neck stiffness,fever,sensitivity to light,Inflammation of brain and spinal cord membranes,Emergency antibiotics hospitalization supportive care
+Encephalitis,headache,fever,confusion,seizures,Brain inflammation often from viral infection,Antiviral medications supportive care hospitalization
+Shingles,painful rash,burning sensation,blisters,nerve pain,Reactivation of chickenpox virus,Antiviral medications pain management topical treatments
+Chickenpox,itchy rash,fever,fatigue,loss of appetite,Highly contagious viral infection,Symptom management antihistamines calamine lotion
+Measles,fever,cough,runny nose,characteristic rash,Highly contagious viral infection,Supportive care fever reducers vitamin A
+Mumps,swollen salivary glands,fever,headache,difficulty swallowing,Viral infection affecting salivary glands,Supportive care pain relievers rest
+Rubella,mild fever,rash,swollen lymph nodes,joint pain,Viral infection also called German measles,Supportive care rest isolation
+Whooping Cough,severe coughing fits,whooping sound,vomiting,exhaustion,Bacterial respiratory infection,Antibiotics supportive care hospitalization for severe cases
+Tuberculosis,persistent cough,weight loss,night sweats,fatigue,Bacterial infection primarily affecting lungs,Long-term antibiotics isolation monitoring
+Pneumocystis Pneumonia,dry cough,shortness of breath,fever,fatigue,Fungal lung infection in immunocompromised,Antifungal medications supportive care
+Candidiasis,white patches in mouth,soreness,difficulty swallowing,loss of taste,Fungal infection of mouth or throat,Antifungal medications good oral hygiene
+Athlete's Foot,itching,burning,cracking between toes,peeling skin,Fungal infection of feet,Antifungal creams good foot hygiene dry feet
+Ringworm,circular rash,itching,hair loss,scaly skin,Fungal skin infection forming ring pattern,Antifungal medications topical treatments good hygiene
+Jock Itch,groin itching,redness,burning,flaking skin,Fungal infection of groin area,Antifungal creams good hygiene loose clothing
+Nail Fungus,thickened nails,discoloration,brittle nails,nail separation,Fungal infection of fingernails or toenails,Antifungal medications nail removal good hygiene
+Scabies,intense itching,rash,burrow tracks,secondary infection,Parasitic mite infestation of skin,Prescription creams treat contacts wash bedding
+Head Lice,scalp itching,visible lice,nits in hair,red bumps,Parasitic insects living on scalp,Medicated shampoos fine-tooth combs wash belongings
+Bed Bugs,itchy bites,red welts,bite patterns,sleep disruption,Parasitic insects feeding on blood,Pest control anti-itch treatments wash bedding
+Malaria,fever,chills,sweating,headache,Parasitic infection transmitted by mosquitoes,Antimalarial medications supportive care prevention
+Heat Exhaustion,heavy sweating,weakness,nausea,headache,Heat-related illness from overexertion,Cool environment fluids rest medical attention
+Heat Stroke,high body temperature,confusion,hot dry skin,rapid pulse,Severe heat-related illness requiring emergency care,Emergency cooling hospitalization IV fluids
+Hypothermia,shivering,confusion,drowsiness,weak pulse,Dangerously low body temperature,Gradual rewarming warm fluids emergency care
+Frostbite,numbness,waxy appearance,blisters,pain,Freezing injury to skin and tissues,Gradual rewarming pain medications prevent infection
+Sunburn,red skin,pain,swelling,blistering,Skin damage from ultraviolet radiation,Cool compresses moisturizers pain relievers prevention
+Poison Ivy,itchy rash,redness,blisters,swelling,Allergic reaction to plant oils,Topical treatments antihistamines cool compresses
+Motion Sickness,nausea,vomiting,dizziness,sweating,Symptoms from motion during travel,Anti-nausea medications ginger motion sickness bands
+Altitude Sickness,headache,nausea,fatigue,dizziness,Symptoms from high altitude low oxygen,Gradual ascent descent medications rest
+Dehydration,thirst,dry mouth,fatigue,dizziness,Excessive fluid loss from body,Fluid replacement oral rehydration IV fluids
+Electrolyte Imbalance,muscle cramps,weakness,confusion,irregular heartbeat,Disruption of body's mineral balance,Electrolyte replacement dietary changes medical monitoring
+Vitamin D Deficiency,bone pain,muscle weakness,fatigue,mood changes,Insufficient vitamin D levels,Vitamin D supplements sun exposure dietary sources
+Vitamin B12 Deficiency,fatigue,weakness,nerve problems,memory issues,Insufficient vitamin B12 levels,B12 injections supplements dietary changes
+Iron Deficiency,fatigue,weakness,pale skin,brittle nails,Insufficient iron levels in body,Iron supplements dietary iron sources treat underlying cause
+Folate Deficiency,fatigue,weakness,irritability,poor concentration,Insufficient folate levels,Folate supplements leafy greens fortified foods
+Magnesium Deficiency,muscle cramps,weakness,irregular heartbeat,personality changes,Insufficient magnesium levels,Magnesium supplements dietary sources
+Calcium Deficiency,muscle cramps,numbness,weak bones,dental problems,Insufficient calcium levels,Calcium supplements dairy products leafy greens
+Vitamin C Deficiency,fatigue,bleeding gums,joint pain,poor wound healing,Insufficient vitamin C levels,Vitamin C supplements citrus fruits vegetables
+Protein Deficiency,muscle wasting,weakness,swelling,slow healing,Insufficient protein intake,Protein supplements balanced diet nutritional counseling
+Carpal Tunnel Syndrome,wrist pain,numbness,tingling,weakness in hand,Nerve compression in wrist from repetitive motion,Wrist braces physical therapy surgery if severe
+Tennis Elbow,elbow pain,weakness,pain with gripping,stiffness,Overuse injury of elbow tendons,Rest physical therapy anti-inflammatory medications
+Plantar Fasciitis,heel pain,foot stiffness,pain worse in morning,arch pain,Inflammation of foot tissue connecting heel to toes,Stretching exercises orthotic devices physical therapy
+Swimmer's Ear,ear pain,itching,discharge,hearing loss,Infection of outer ear canal,Antibiotic ear drops keep ear dry pain relievers
+Diaper Rash,red irritated skin,bumps,scaling,discomfort,Skin irritation in diaper area,Keep area clean and dry barrier creams
+Cradle Cap,scaly patches on scalp,oily appearance,flaking,mild redness,Common scalp condition in infants,Gentle washing baby oil soft brush
+Hand Foot Mouth Disease,fever,sore throat,rash on hands and feet,mouth sores,Viral infection common in children,Supportive care pain relievers stay hydrated
+Impetigo,red sores,honey-crusted lesions,itching,spreading,Bacterial skin infection,Antibiotic ointment oral antibiotics good hygiene
+Cellulitis,red swollen skin,warmth,pain,fever,Bacterial infection of deep skin layers,Antibiotics elevation rest wound care
+Abscess,painful swollen lump,redness,warmth,pus drainage,Localized infection with pus collection,Drainage antibiotics warm compresses pain management
+Boils,painful red bumps,swelling,pus formation,fever,Infected hair follicles forming pus-filled bumps,Warm compresses drainage antibiotics if severe
+Folliculitis,red bumps,itching,pus-filled bumps,tenderness,Inflammation of hair follicles,Antibiotics good hygiene avoid tight clothing
+Hidradenitis Suppurativa,painful lumps,abscesses,scarring,foul odor,Chronic skin condition affecting sweat glands,Antibiotics lifestyle changes surgery if severe
+Keratosis Pilaris,small bumps,rough skin,redness,dryness,Common skin condition causing small bumps,Moisturizers gentle exfoliation topical treatments
+Seborrheic Dermatitis,red scaly patches,itching,flaking,oily skin,Chronic inflammatory skin condition,Medicated shampoos topical antifungals lifestyle changes
+Contact Dermatitis,redness,itching,swelling,blistering,Skin reaction to allergens or irritants,Avoid triggers topical corticosteroids antihistamines
+Atopic Dermatitis,dry itchy skin,redness,swelling,thickened skin,Chronic inflammatory skin condition,Moisturizers topical treatments avoid triggers
+Urticaria,raised welts,itching,swelling,burning,Allergic skin reaction causing hives,Antihistamines avoid triggers cool compresses
+Vitiligo,white patches,loss of pigmentation,symmetrical pattern,progressive,Autoimmune condition causing loss of skin color,Topical treatments phototherapy cosmetic camouflage
+Melasma,dark patches,facial discoloration,symmetrical,hormone-related,Skin condition causing dark patches,Sun protection topical lightening agents
+Age Spots,brown spots,flat lesions,sun-exposed areas,gradual appearance,Benign skin discoloration from sun damage,Laser treatment chemical peels sun protection
+Basal Cell Carcinoma,pearly bump,bleeding,ulcer,slow growth,Most common type of skin cancer,Surgical removal Mohs surgery radiation therapy
+Squamous Cell Carcinoma,scaly patch,open sore,raised growth,bleeding,Second most common skin cancer,Surgical removal radiation therapy topical chemotherapy
+Melanoma,changing mole,asymmetry,irregular borders,color variation,Most dangerous type of skin cancer,Surgical removal immunotherapy chemotherapy radiation
+Skin Tags,small hanging growths,soft texture,flesh-colored,painless,Benign skin growths,Surgical removal cryotherapy electrocautery
+Sebaceous Cyst,round lump,movable,painless,slow growth,Benign cyst containing keratin,Surgical removal drainage if infected
+Lipoma,soft fatty lump,movable,painless,slow growth,Benign fatty tumor under skin,Observation surgical removal if bothersome
+Cherry Angioma,small red bumps,smooth surface,painless,increases with age,Benign vascular growths,Observation laser removal if desired
+Spider Veins,visible veins,web-like pattern,blue or purple,cosmetic concern,Dilated blood vessels near skin surface,Sclerotherapy laser treatment compression stockings
+Varicose Veins,enlarged veins,blue or purple,bulging,aching,Twisted enlarged veins often in legs,Compression stockings lifestyle changes surgery
+Deep Vein Thrombosis,leg swelling,pain,warmth,redness,Blood clot in deep vein,Anticoagulants compression stockings hospitalization
+Pulmonary Embolism,shortness of breath,chest pain,rapid heartbeat,coughing blood,Blood clot in lung arteries,Emergency anticoagulation oxygen support hospitalization
+Atrial Fibrillation,irregular heartbeat,palpitations,shortness of breath,fatigue,Irregular heart rhythm,Medications cardioversion anticoagulation
+Heart Attack,chest pain,shortness of breath,nausea,sweating,Blockage of blood flow to heart muscle,Emergency angioplasty medications cardiac rehabilitation
+Angina,chest pain,pressure,shortness of breath,arm pain,Reduced blood flow to heart muscle,Medications lifestyle changes angioplasty if needed
+Congestive Heart Failure,shortness of breath,swelling,fatigue,cough,Heart's inability to pump blood effectively,Medications lifestyle changes device therapy
+Peripheral Artery Disease,leg pain,cramping,weakness,coldness,Narrowed arteries reducing blood flow to limbs,Lifestyle changes medications angioplasty
+Aortic Aneurysm,abdominal pain,back pain,pulsating mass,no symptoms,Weakened bulging area in aorta,Monitoring lifestyle changes surgery if large
+Mitral Valve Prolapse,chest pain,palpitations,fatigue,shortness of breath,Heart valve doesn't close properly,Monitoring medications surgery if severe
+Cardiomyopathy,shortness of breath,fatigue,swelling,irregular heartbeat,Disease of heart muscle,Medications lifestyle changes device therapy transplant
+Pericarditis,sharp chest pain,fever,difficulty breathing,cough,Inflammation of heart's protective sac,Anti-inflammatory medications rest pericardiocentesis
+Endocarditis,fever,fatigue,heart murmur,joint pain,Infection of heart's inner lining,Antibiotics hospitalization valve replacement if severe
+Raynaud's Phenomenon,color changes in fingers,numbness,tingling,pain,Reduced blood flow to fingers and toes,Lifestyle changes medications avoid triggers
+Chronic Obstructive Pulmonary Disease,shortness of breath,chronic cough,wheezing,chest tightness,Progressive lung disease limiting airflow,Bronchodilators lifestyle changes oxygen therapy
+Emphysema,shortness of breath,chronic cough,barrel chest,fatigue,Lung condition with damaged air sacs,Bronchodilators oxygen therapy pulmonary rehabilitation
+Chronic Bronchitis,persistent cough,mucus production,shortness of breath,wheezing,Long-term inflammation of airways,Bronchodilators mucolytics lifestyle changes
+Pulmonary Fibrosis,progressive shortness of breath,dry cough,fatigue,weight loss,Lung scarring reducing oxygen transfer,Anti-fibrotic medications oxygen therapy transplant
+Sarcoidosis,shortness of breath,persistent cough,fatigue,skin lesions,Inflammatory disease affecting multiple organs,Corticosteroids immunosuppressants monitoring
+Pleural Effusion,shortness of breath,chest pain,dry cough,reduced exercise tolerance,Fluid accumulation around lungs,Thoracentesis treat underlying cause medications
+Pleurisy,sharp chest pain,shortness of breath,cough,fever,Inflammation of lung membrane,Anti-inflammatory medications treat underlying cause
+Interstitial Lung Disease,progressive shortness of breath,dry cough,fatigue,clubbing of fingers,Group of lung disorders causing scarring,Corticosteroids oxygen therapy transplant if severe
+Lung Cancer,persistent cough,chest pain,shortness of breath,weight loss,Malignant tumor in lungs,Surgery chemotherapy radiation therapy immunotherapy
+Mesothelioma,chest pain,shortness of breath,persistent cough,weight loss,Cancer affecting lung lining often from asbestos,Surgery chemotherapy radiation therapy
+Vocal Cord Paralysis,hoarse voice,breathy voice,difficulty swallowing,aspiration,Nerve damage affecting vocal cord movement,Voice therapy surgery injections
+Laryngitis,hoarse voice,sore throat,dry cough,throat clearing,Inflammation of voice box,Voice rest hydration treat underlying cause
+Pharyngitis,sore throat,difficulty swallowing,swollen glands,fever,Inflammation of throat,Antibiotics if bacterial pain relievers rest
+Tonsillitis,sore throat,swollen tonsils,difficulty swallowing,fever,Inflammation of tonsils,Antibiotics pain relievers tonsillectomy if recurrent
+Epiglottitis,severe sore throat,difficulty swallowing,drooling,high fever,Inflammation of epiglottis,Emergency antibiotics hospitalization airway management
+Croup,barking cough,stridor,hoarse voice,fever,Viral infection causing airway swelling,Humidified air corticosteroids supportive care
+Whooping Cough,severe coughing fits,whooping sound,vomiting after coughing,exhaustion,Bacterial infection causing severe cough,Antibiotics supportive care isolation
+Pertussis,paroxysmal cough,whooping sound,post-cough vomiting,apnea in infants,Highly contagious bacterial respiratory infection,Antibiotics supportive care vaccination prevention
+Diphtheria,sore throat,low fever,swollen neck glands,gray membrane,Bacterial infection affecting throat and airways,Antitoxin antibiotics supportive care vaccination
+Epiglottitis,severe throat pain,difficulty swallowing,muffled voice,high fever,Life-threatening inflammation of epiglottis,Emergency airway management antibiotics hospitalization
+Retropharyngeal Abscess,severe throat pain,difficulty swallowing,neck stiffness,high fever,Deep neck infection,Surgical drainage antibiotics hospitalization
+Parapharyngeal Abscess,throat pain,trismus,neck swelling,fever,Deep neck space infection,Surgical drainage antibiotics hospitalization
+Ludwig's Angina,floor of mouth swelling,difficulty swallowing,drooling,fever,Serious neck infection,Emergency antibiotics surgical drainage airway management
+Quinsy,severe throat pain,difficulty swallowing,drooling,trismus,Severe throat infection with abscess,Surgical drainage antibiotics hospitalization
+Peritonsillar Abscess,severe sore throat,difficulty opening mouth,muffled voice,ear pain,Abscess near tonsils,Drainage antibiotics pain management
+Mastoiditis,ear pain,swelling behind ear,fever,hearing loss,Infection of bone behind ear,Antibiotics surgical drainage hospitalization
+Labyrinthitis,severe dizziness,hearing loss,nausea,balance problems,Inner ear infection causing vertigo,Antibiotics vestibular suppressants rest
+Meniere's Disease,episodes of vertigo,hearing loss,tinnitus,ear fullness,Inner ear disorder affecting balance and hearing,Diuretics dietary changes vestibular therapy
+Acoustic Neuroma,gradual hearing loss,tinnitus,balance problems,facial numbness,Benign tumor on hearing nerve,Surgery radiation therapy monitoring
+Otosclerosis,progressive hearing loss,tinnitus,dizziness,family history,Abnormal bone growth in middle ear,Hearing aids surgery fluoride supplements
+Perforated Eardrum,ear pain,hearing loss,discharge,tinnitus,Hole in eardrum from infection or trauma,Antibiotics keep ear dry surgical repair if needed
+Cholesteatoma,hearing loss,ear discharge,dizziness,ear pressure,Abnormal skin growth in middle ear,Surgical removal antibiotics hearing aids
+Swimmer's Ear,ear pain,itching,discharge,hearing loss,Infection of outer ear canal,Antibiotic drops pain relievers keep ear dry
+Cerumen Impaction,hearing loss,ear fullness,dizziness,ringing,Earwax blockage,Professional removal ear drops irrigation
+Presbycusis,gradual hearing loss,difficulty understanding speech,tinnitus,social isolation,Age-related hearing loss,Hearing aids assistive devices communication strategies
+Noise-Induced Hearing Loss,hearing loss,tinnitus,difficulty hearing high frequencies,ear pain,Damage from loud noise exposure,Hearing protection hearing aids avoid loud noises
+Sudden Sensorineural Hearing Loss,sudden hearing loss,tinnitus,dizziness,ear fullness,Rapid hearing loss requiring immediate treatment,Corticosteroids hyperbaric oxygen audiologic rehabilitation
+Conductive Hearing Loss,hearing loss,ear fullness,difficulty hearing soft sounds,normal bone conduction,Blockage preventing sound transmission,Treat underlying cause hearing aids surgery
+Sensorineural Hearing Loss,hearing loss,difficulty understanding speech,tinnitus,recruitment,Damage to inner ear or hearing nerve,Hearing aids cochlear implants assistive devices
+Mixed Hearing Loss,combination of conductive and sensorineural symptoms,variable presentation,Complex hearing loss with multiple causes,Combination of treatments hearing aids surgery
+Central Auditory Processing Disorder,difficulty understanding speech,normal hearing,poor listening skills,academic problems,Brain's inability to process auditory information,Auditory training assistive devices environmental modifications
+Hyperacusis,sound sensitivity,ear pain,discomfort with normal sounds,social withdrawal,Reduced tolerance to everyday sounds,Sound therapy counseling hearing protection
+Misophonia,anger at specific sounds,anxiety,avoidance behaviors,fight or flight response,Strong emotional reaction to certain sounds,Cognitive behavioral therapy sound therapy coping strategies
+Tinnitus,ringing in ears,buzzing,hissing,roaring,Perception of sound without external stimulus,Tinnitus retraining therapy hearing aids sound masking
+Pulsatile Tinnitus,rhythmic tinnitus,heartbeat sounds,whooshing,objective tinnitus,Tinnitus synchronized with heartbeat,Treat underlying vascular cause sound therapy
+Presbyopia,difficulty reading,eye strain,headaches,need for reading glasses,Age-related decline in near vision,Reading glasses bifocals progressive lenses surgery
+Myopia,distant vision problems,squinting,eye strain,headaches,Nearsightedness difficulty seeing far objects,Corrective lenses contact lenses refractive surgery
+Hyperopia,near vision problems,eye strain,headaches,difficulty focusing,Farsightedness difficulty seeing near objects,Corrective lenses contact lenses refractive surgery
+Astigmatism,blurred vision,eye strain,headaches,distorted vision,Irregular corneal shape causing vision problems,Corrective lenses contact lenses refractive surgery
+Amblyopia,poor vision in one eye,depth perception problems,eye turning,head tilting,Lazy eye with reduced vision development,Eye patching vision therapy corrective lenses
+Strabismus,crossed eyes,double vision,poor depth perception,head tilting,Misalignment of eyes,Corrective lenses eye exercises surgery
+Ptosis,drooping eyelid,reduced vision,eye fatigue,asymmetrical appearance,Drooping of upper eyelid,Surgery to lift eyelid corrective lenses
+Chalazion,eyelid bump,swelling,tenderness,vision problems if large,Blocked oil gland in eyelid,Warm compresses antibiotics surgical removal
+Stye,painful eyelid bump,redness,swelling,tearing,Infected eyelash follicle,Warm compresses antibiotics drainage if needed
+Blepharitis,eyelid inflammation,itching,crusting,burning,Inflammation of eyelid margins,Eyelid hygiene antibiotics warm compresses
+Dry Eye,eye dryness,burning,itching,light sensitivity,Insufficient tear production or quality,Artificial tears lifestyle changes medications
+Allergic Conjunctivitis,itchy eyes,redness,tearing,swelling,Allergic reaction affecting eyes,Antihistamines avoid allergens cool compresses
+Viral Conjunctivitis,red eyes,watery discharge,burning,light sensitivity,Viral infection of eye membrane,Supportive care artificial tears avoid spreading
+Bacterial Conjunctivitis,red eyes,yellow discharge,crusting,burning,Bacterial infection of eye membrane,Antibiotic drops warm compresses good hygiene
+Keratitis,eye pain,light sensitivity,tearing,blurred vision,Inflammation of cornea,Antibiotics antifungals artificial tears
+Corneal Abrasion,eye pain,tearing,light sensitivity,foreign body sensation,Scratch on cornea surface,Antibiotic drops pain relief eye protection
+Corneal Ulcer,severe eye pain,light sensitivity,discharge,vision loss,Open sore on cornea,Emergency treatment antibiotics hospitalization
+Iritis,eye pain,light sensitivity,blurred vision,red eye,Inflammation of colored part of eye,Steroid drops dilating drops treat underlying cause
+Scleritis,severe eye pain,light sensitivity,red eye,vision problems,Inflammation of white part of eye,Anti-inflammatory medications immunosuppressants
+Retinal Detachment,sudden vision loss,flashing lights,floaters,curtain effect,Separation of retina from underlying tissue,Emergency surgery to reattach retina
+Macular Hole,central vision loss,distorted vision,difficulty reading,blind spot,Hole in center of retina,Vitrectomy surgery gas bubble injection
+Diabetic Retinopathy,blurred vision,floaters,dark spots,vision loss,Diabetes-related damage to retinal blood vessels,Blood sugar control laser treatment injections
+Hypertensive Retinopathy,vision changes,headaches,double vision,vision loss,High blood pressure damage to retinal vessels,Blood pressure control medications lifestyle changes
+Retinal Vein Occlusion,sudden vision loss,distorted vision,dark spots,swelling,Blockage of retinal vein,Anti-VEGF injections laser treatment steroids
+Retinal Artery Occlusion,sudden painless vision loss,cherry red spot,pale retina,severe visual impairment,Blockage of retinal artery,Emergency treatment hyperbaric oxygen
+Vitreous Hemorrhage,sudden vision loss,floaters,red haze,light sensitivity,Bleeding into vitreous cavity,Surgery laser treatment treat underlying cause
+Retinitis Pigmentosa,night blindness,tunnel vision,light sensitivity,progressive vision loss,Inherited disorder causing retinal degeneration,Vitamin A low vision aids genetic counseling
+Leber Congenital Amaurosis,severe vision loss from birth,nystagmus,light sensitivity,developmental delays,Inherited retinal dystrophy,Gene therapy low vision aids supportive care
+Stargardt Disease,central vision loss,difficulty reading,color vision problems,progressive vision loss,Inherited macular dystrophy,Low vision aids lifestyle modifications genetic counseling
+Best Disease,central vision problems,metamorphopsia,reading difficulties,variable progression,Inherited macular dystrophy,Monitoring low vision aids lifestyle modifications
+Cone-Rod Dystrophy,color vision problems,light sensitivity,central vision loss,progressive symptoms,Inherited retinal degeneration,Tinted lenses low vision aids genetic counseling
+Rod-Cone Dystrophy,night blindness,peripheral vision loss,light sensitivity,progressive symptoms,Inherited retinal degeneration affecting rods first,Vitamin A low vision aids mobility training
+Usher Syndrome,hearing loss,night blindness,balance problems,progressive vision loss,Inherited disorder affecting hearing and vision,Hearing aids cochlear implants low vision aids
+Bardet-Biedl Syndrome,obesity,extra fingers,kidney problems,retinal dystrophy,Genetic syndrome with multiple organ involvement,Multidisciplinary care low vision aids genetic counseling
+Alstrom Syndrome,obesity,hearing loss,diabetes,retinal dystrophy,Rare genetic syndrome with multiple system involvement,Multidisciplinary care supportive treatment genetic counseling
