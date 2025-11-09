@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { X, ExternalLink, Loader2, Book } from 'lucide-react';
-import { TermExplanation } from '../lib/types';
+import { TermExplanation } from '../lib/api-simple';
 
 interface ExplanationPanelProps {
   term: string | null;

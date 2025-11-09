@@ -13,8 +13,7 @@ import ChatInterface from '../components/ChatInterface';
 import KnowledgeGraph from '../components/KnowledgeGraph';
 import ResultsDisplay from '../components/ResultsDisplay';
 import ExplanationPanel from '../components/ExplanationPanel';
-import { api } from '../lib/api';
-import { DiseaseResult, TermExplanation } from '../lib/types';
+import { api, DiseaseResult, TermExplanation } from '../lib/api-simple';
 
 export default function Home() {
   // Application state
