@@ -5,14 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next build && next export",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf .next out dist",
-    "test": "echo \"No tests yet\" && exit 0",
-    "analyze": "ANALYZE=true npm run build"
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",
