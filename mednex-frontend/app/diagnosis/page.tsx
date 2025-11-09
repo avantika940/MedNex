@@ -12,7 +12,8 @@ import ChatInterface from '../../components/ChatInterface';
 import KnowledgeGraph from '../../components/KnowledgeGraph';
 import ResultsDisplay from '../../components/ResultsDisplay';
 import ExplanationPanel from '../../components/ExplanationPanel';
-import { api, DiseaseResult, TermExplanation } from '../../lib/api-simple';
+import { api } from '../../lib/api';
+import { DiseaseResult, TermExplanation } from '../../lib/types';
 
 export default function DiagnosisPage() {
   // Application state

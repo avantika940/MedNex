@@ -9,8 +9,7 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, AlertTriangle, Info, Loader2 } from 'lucide-react';
-import { DiseaseResult } from '../lib/api-simple';
-import { CONFIDENCE_LEVELS } from '../lib/types';
+import { DiseaseResult, CONFIDENCE_LEVELS } from '../lib/types';
 
 interface ResultsDisplayProps {
   predictions: DiseaseResult[];
