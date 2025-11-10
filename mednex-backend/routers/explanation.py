@@ -7,15 +7,16 @@ from pydantic import BaseModel
 from typing import Dict, Any
 import logging
 try:
-    from database.supabase_client import SupabaseClient
+    from database.mongodb_client import get_mongodb_client
+    MongoDBClient = get_mongodb_client
 except ImportError:
-    SupabaseClient = None
+    MongoDBClient = None
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
 # Initialize database client
-db_client = SupabaseClient() if SupabaseClient else None
+db_client = get_mongodb_client() if MongoDBClient else None
 
 class ExplanationResponse(BaseModel):
     term: str

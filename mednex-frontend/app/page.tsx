@@ -7,12 +7,17 @@
 
 'use client';
 
-import React from 'react';
-import { Brain, Shield, AlertTriangle, Activity } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Brain, Shield, AlertTriangle, Activity, LogIn } from 'lucide-react';
+import { isAuthenticated } from '@/lib/auth';
+import Link from 'next/link';
 
 export default function Home() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return (
+  useEffect(() => {
+    setIsLoggedIn(isAuthenticated());
+  }, []);  return (
     <div className="min-h-screen gradient-medical pt-20">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -33,14 +38,38 @@ export default function Home() {
               Describe your symptoms and get intelligent insights using advanced medical AI
             </p>
             
-            {/* Get Started Button */}
-            <div className="mb-12">
-              <a
-                href="/diagnosis"
-                className="btn-professional px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-block"
-              >
-                Get Started with AI Diagnosis
-              </a>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              {isLoggedIn ? (
+                <>
+                  <Link
+                    href="/diagnosis"
+                    className="btn-professional px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-block"
+                  >
+                    Get Started with AI Diagnosis
+                  </Link>
+                  <Link
+                    href="/history"
+                    className="px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-block bg-white text-purple-600 border-2 border-purple-600 hover:bg-purple-50"
+                  >
+                    View My History
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="btn-professional px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
+                  >
+                    <LogIn className="h-5 w-5" />
+                    <span>Login to Get Started</span>
+                  </Link>
+                  <div className="text-gray-600 text-sm max-w-md">
+                    <AlertTriangle className="h-4 w-4 inline mr-1 text-yellow-600" />
+                    Please login to access AI diagnosis and track your history
+                  </div>
+                </>
+              )}
             </div>
             
             {/* Key Features */}
@@ -212,12 +241,14 @@ export default function Home() {
             >
               Learn More About MedNex
             </a>
-            <a
-              href="/settings"
-              className="px-6 py-3 bg-white bg-opacity-20 text-gray-700 rounded-lg border border-gray-300 hover:bg-opacity-30 transition-all duration-300"
-            >
-              App Settings
-            </a>
+            {isLoggedIn && (
+              <a
+                href="/settings"
+                className="px-6 py-3 bg-white bg-opacity-20 text-gray-700 rounded-lg border border-gray-300 hover:bg-opacity-30 transition-all duration-300"
+              >
+                App Settings
+              </a>
+            )}
           </div>
         </div>
 

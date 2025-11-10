@@ -26,7 +26,7 @@ class LLaMAReasoningService:
         else:
             self.client = Groq(api_key=self.api_key)
         
-        self.model = "llama-3.2-90b-text-preview"
+        self.model = "llama-3.1-70b-versatile"  # Updated to supported model
         self.system_prompt = """You are a medical symptom analysis assistant. Your role is to:
 1. Ask clarifying questions about symptoms in a professional, empathetic manner
 2. Extract and understand medical symptoms from user descriptions

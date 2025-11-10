@@ -2,20 +2,24 @@
  * Diagnosis Page
  * 
  * Focused diagnosis interface with enhanced features
+ * PROTECTED ROUTE - Requires authentication
  */
 
 'use client';
 
 import React, { useState } from 'react';
 import { Brain, Activity, AlertTriangle, Shield } from 'lucide-react';
-import ChatInterface from '../../components/ChatInterface';
-import KnowledgeGraph from '../../components/KnowledgeGraph';
-import ResultsDisplay from '../../components/ResultsDisplay';
-import ExplanationPanel from '../../components/ExplanationPanel';
-import { api } from '../../lib/api';
-import { DiseaseResult, TermExplanation } from '../../lib/types';
+import ChatInterface from '@/components/ChatInterface';
+import KnowledgeGraph from '@/components/KnowledgeGraph';
+import ResultsDisplay from '@/components/ResultsDisplay';
+import ExplanationPanel from '@/components/ExplanationPanel';
+import ProtectedRoute from '@/components/ProtectedRoute';
+import { api } from '@/lib/api';
+import { DiseaseResult, TermExplanation } from '@/lib/types';
+import { saveDiagnosis } from '@/lib/customer-api';
+import { isAuthenticated } from '@/lib/auth';
 
-export default function DiagnosisPage() {
+function DiagnosisPageContent() {
   // Application state
   const [symptoms, setSymptoms] = useState<string[]>([]);
   const [predictions, setPredictions] = useState<DiseaseResult[]>([]);
@@ -23,20 +27,25 @@ export default function DiagnosisPage() {
   const [explanation, setExplanation] = useState<TermExplanation | null>(null);
   const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
 
-  // Save to history when predictions are made
-  const saveToHistory = (originalQuery: string, symptoms: string[], predictions: DiseaseResult[]) => {
-    const historyEntry = {
-      id: Date.now().toString(),
-      timestamp: new Date(),
-      originalQuery,
-      symptoms,
-      predictions,
-      confidence: predictions.length > 0 ? predictions[0].confidence : 0
-    };
-
-    const existingHistory = JSON.parse(localStorage.getItem('mednex-history') || '[]');
-    const updatedHistory = [historyEntry, ...existingHistory].slice(0, 50); // Keep only last 50 entries
-    localStorage.setItem('mednex-history', JSON.stringify(updatedHistory));
+  // Save to backend API when predictions are made
+  const saveToHistory = async (originalQuery: string, symptoms: string[], predictions: DiseaseResult[]) => {
+    // Only run on client side
+    if (typeof window === 'undefined') return;
+    
+    // Check if user is authenticated
+    if (!isAuthenticated()) {
+      console.log('User not authenticated - skipping history save');
+      return;
+    }
+    
+    try {
+      // Save to backend API
+      await saveDiagnosis(symptoms, predictions);
+      console.log('Diagnosis saved to backend successfully');
+    } catch (error) {
+      console.error('Failed to save diagnosis to backend:', error);
+      // Silently fail - don't interrupt user flow
+    }
   };
 
   /**
@@ -308,5 +317,14 @@ export default function DiagnosisPage() {
         onClose={handleCloseExplanation}
       />
     </div>
+  );
+}
+
+// Wrap with ProtectedRoute to require authentication
+export default function DiagnosisPage() {
+  return (
+    <ProtectedRoute>
+      <DiagnosisPageContent />
+    </ProtectedRoute>
   );
 }

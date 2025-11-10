@@ -6,7 +6,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Brain, 
   Activity, 
@@ -17,21 +17,40 @@ import {
   X,
   Home,
   FileText,
-  Shield
+  Shield,
+  LogIn,
+  LogOut
 } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { getCurrentUser, logout, isAdmin } from '@/lib/auth';
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
   const pathname = usePathname();
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check authentication status
+    const currentUser = getCurrentUser();
+    setUser(currentUser);
+  }, [pathname]);
+
+  const handleLogout = () => {
+    logout();
+    setUser(null);
+    router.push('/');
+  };
 
   const navItems = [
     { href: '/', label: 'Home', icon: Home },
-    { href: '/diagnosis', label: 'Diagnosis', icon: Activity },
-    { href: '/history', label: 'History', icon: History },
+    ...(user ? [
+      { href: '/diagnosis', label: 'Diagnosis', icon: Activity },
+      { href: '/history', label: 'History', icon: History },
+    ] : []),
     { href: '/about', label: 'About', icon: FileText },
-    { href: '/settings', label: 'Settings', icon: Settings },
+    ...(user && isAdmin() ? [{ href: '/admin/dashboard', label: 'Admin', icon: Shield }] : []),
   ];
 
   const isActive = (path: string) => pathname === path;
@@ -69,11 +88,44 @@ const Navigation: React.FC = () => {
             ))}
           </div>
 
-          {/* User Profile */}
+          {/* User Profile / Auth */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="p-2 text-gray-600 hover:text-blue-600 transition-colors duration-300">
-              <User className="h-5 w-5" />
-            </button>
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-sm text-gray-600">
+                  Welcome, <span className="font-semibold text-blue-600">{user.full_name}</span>
+                  {user.role === 'admin' && (
+                    <span className="ml-2 px-2 py-0.5 bg-red-100 text-red-700 text-xs font-semibold rounded">
+                      ADMIN
+                    </span>
+                  )}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center space-x-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span>Logout</span>
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-3">
+                <Link
+                  href="/login"
+                  className="flex items-center space-x-2 px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                >
+                  <LogIn className="h-4 w-4" />
+                  <span>Login</span>
+                </Link>
+                <Link
+                  href="/admin/login"
+                  className="flex items-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                >
+                  <Shield className="h-4 w-4" />
+                  <span>Admin</span>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -105,10 +157,47 @@ const Navigation: React.FC = () => {
                 </Link>
               ))}
               <div className="border-t border-gray-200 pt-2 mt-2">
-                <button className="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:text-blue-600 transition-colors duration-300">
-                  <User className="h-5 w-5" />
-                  <span className="font-medium">Profile</span>
-                </button>
+                {user ? (
+                  <>
+                    <div className="px-4 py-2 text-sm text-gray-600">
+                      Welcome, <span className="font-semibold text-blue-600">{user.full_name}</span>
+                      {user.role === 'admin' && (
+                        <span className="ml-2 px-2 py-0.5 bg-red-100 text-red-700 text-xs font-semibold rounded">
+                          ADMIN
+                        </span>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => {
+                        handleLogout();
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex items-center space-x-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg w-full transition-colors"
+                    >
+                      <LogOut className="h-5 w-5" />
+                      <span className="font-medium">Logout</span>
+                    </button>
+                  </>
+                ) : (
+                  <div className="space-y-2">
+                    <Link
+                      href="/login"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center space-x-3 px-4 py-3 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                    >
+                      <LogIn className="h-5 w-5" />
+                      <span className="font-medium">User Login</span>
+                    </Link>
+                    <Link
+                      href="/admin/login"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center space-x-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                    >
+                      <Shield className="h-5 w-5" />
+                      <span className="font-medium">Admin Login</span>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>

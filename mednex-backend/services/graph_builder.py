@@ -9,7 +9,7 @@ import networkx as nx
 import json
 import logging
 from typing import List, Dict, Any
-from database.supabase_client import SupabaseClient
+from database.mongodb_client import MongoDBClient
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class GraphBuilderService:
     
     def __init__(self):
         """Initialize graph builder service"""
-        self.db_client = SupabaseClient()
+        self.db_client = MongoDBClient()
         self.node_colors = {
             'symptom': '#3B82F6',  # Blue
             'disease': '#EF4444',  # Red

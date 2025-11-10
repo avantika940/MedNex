@@ -10,8 +10,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { Loader2, Info } from 'lucide-react';
-import { api } from '../lib/api';
-import { GraphData, GraphNode, GraphEdge } from '../lib/types';
+import { api } from '@/lib/api';
+import { GraphData, GraphNode, GraphEdge } from '@/lib/types';
 
 interface KnowledgeGraphProps {
   symptoms: string[];

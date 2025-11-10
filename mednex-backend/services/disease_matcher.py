@@ -11,7 +11,7 @@ import os
 import logging
 from typing import List, Dict, Any
 import time
-from database.supabase_client import SupabaseClient
+from database.mongodb_client import MongoDBClient
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class DiseaseMatchingService:
         """Initialize disease matching service"""
         self.dataset_path = os.getenv("DATASET_PATH", "./data/disease_symptom_dataset.csv")
         self.disease_data = None
-        self.db_client = SupabaseClient()
+        self.db_client = MongoDBClient()
         self._load_dataset()
     
     def _load_dataset(self):

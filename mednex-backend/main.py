@@ -25,26 +25,29 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Apply production optimizations
-try:
-    from production_config import optimize_for_production
-    optimize_for_production()
-except ImportError:
-    logger.info("Production config not available, using default settings")
-
 # Import routers
 try:
-    from routers import symptoms, prediction, graph, explanation, chat
+    from routers.symptoms import router as symptoms_router
+    from routers.prediction import router as prediction_router
+    from routers.graph import router as graph_router
+    from routers.explanation import router as explanation_router
+    from routers.chat import router as chat_router
+    from routers.auth import router as auth_router
+    from routers.admin import router as admin_router
+    from routers.customer import router as customer_router
     logger.info("All routers imported successfully")
 except ImportError as e:
     logger.error(f"Failed to import routers: {e}")
     # Create minimal routers for basic functionality
     from fastapi import APIRouter
-    symptoms = APIRouter()
-    prediction = APIRouter()
-    graph = APIRouter()
-    explanation = APIRouter()
-    chat = APIRouter()
+    symptoms_router = APIRouter()
+    prediction_router = APIRouter()
+    graph_router = APIRouter()
+    explanation_router = APIRouter()
+    chat_router = APIRouter()
+    auth_router = APIRouter()
+    admin_router = APIRouter()
+    customer_router = APIRouter()
     logger.warning("Using fallback routers")
 
 # Initialize FastAPI app
@@ -57,8 +60,7 @@ app = FastAPI(
 )
 
 # CORS configuration
-CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000,https://mednex-frontend.onrender.com").split(",")
-logger.info(f"CORS Origins configured: {CORS_ORIGINS}")
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
 
 app.add_middleware(
     CORSMiddleware,
@@ -69,11 +71,14 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(symptoms.router, prefix="/api", tags=["symptoms"])
-app.include_router(prediction.router, prefix="/api", tags=["prediction"])
-app.include_router(graph.router, prefix="/api", tags=["graph"])
-app.include_router(explanation.router, prefix="/api", tags=["explanation"])
-app.include_router(chat.router, prefix="/api", tags=["chat"])
+app.include_router(auth_router, prefix="/api/auth", tags=["authentication"])
+app.include_router(admin_router, prefix="/api/admin", tags=["admin"])
+app.include_router(customer_router, prefix="/api/customer", tags=["customer"])
+app.include_router(symptoms_router, prefix="/api", tags=["symptoms"])
+app.include_router(prediction_router, prefix="/api", tags=["prediction"])
+app.include_router(graph_router, prefix="/api", tags=["graph"])
+app.include_router(explanation_router, prefix="/api", tags=["explanation"])
+app.include_router(chat_router, prefix="/api", tags=["chat"])
 
 @app.get("/")
 async def root():

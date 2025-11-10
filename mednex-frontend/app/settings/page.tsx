@@ -21,8 +21,9 @@ import {
   Eye,
   EyeOff
 } from 'lucide-react';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
-const SettingsPage: React.FC = () => {
+const SettingsContent: React.FC = () => {
   const [settings, setSettings] = useState({
     notifications: true,
     saveHistory: true,
@@ -371,6 +372,14 @@ const SettingsPage: React.FC = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const SettingsPage: React.FC = () => {
+  return (
+    <ProtectedRoute>
+      <SettingsContent />
+    </ProtectedRoute>
   );
 };
 

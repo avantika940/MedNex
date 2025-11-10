@@ -2,6 +2,7 @@
  * History Component
  * 
  * Displays user's search history with detailed analysis results and comprehensive analytics
+ * PROTECTED ROUTE - Requires authentication
  */
 
 'use client';
@@ -23,42 +24,80 @@ import {
   Target,
   AlertCircle,
   CheckCircle,
-  Brain
+  Brain,
+  Loader2
 } from 'lucide-react';
+import { getDiagnosisHistory, deleteDiagnosis } from '@/lib/customer-api';
+import { useRouter } from 'next/navigation';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 interface HistoryEntry {
   id: string;
   timestamp: Date;
   symptoms: string[];
-  predictions: any[];
-  originalQuery: string;
+  predicted_diseases: any[];
+  originalQuery?: string;
   confidence: number;
 }
 
-const HistoryPage: React.FC = () => {
+function HistoryPageContent() {
+  const router = useRouter();
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [filteredHistory, setFilteredHistory] = useState<HistoryEntry[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<'date' | 'confidence'>('date');
   const [filterBy, setFilterBy] = useState<'all' | 'high' | 'medium' | 'low'>('all');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Load history from localStorage on component mount
+  // Load history from backend API on component mount
   useEffect(() => {
-    const savedHistory = localStorage.getItem('mednex-history');
-    if (savedHistory) {
-      const parsedHistory = JSON.parse(savedHistory).map((entry: any) => ({
-        ...entry,
-        timestamp: new Date(entry.timestamp)
-      }));
-      setHistory(parsedHistory);
-      setFilteredHistory(parsedHistory);
-    }
+    fetchHistory();
   }, []);
+
+  const fetchHistory = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      
+      const data = await getDiagnosisHistory(0, 100);
+      
+      // Transform backend data to match frontend format
+      const transformedHistory = data.map((entry: any) => ({
+        id: entry.id,
+        timestamp: new Date(entry.timestamp),
+        symptoms: entry.symptoms || [],
+        predicted_diseases: entry.predicted_diseases || [],
+        originalQuery: entry.symptoms?.join(', ') || 'Symptom check',
+        // Calculate average confidence from predicted diseases
+        confidence: entry.predicted_diseases?.length > 0
+          ? Math.round(
+              entry.predicted_diseases.reduce((sum: number, disease: any) => sum + (disease.confidence || 0), 0) /
+              entry.predicted_diseases.length
+            )
+          : 0
+      }));
+      
+      setHistory(transformedHistory);
+      setFilteredHistory(transformedHistory);
+    } catch (err: any) {
+      console.error('Failed to fetch history:', err);
+      if (err.message?.includes('Not authenticated') || err.message?.includes('Failed to fetch')) {
+        setError('Please log in to view your diagnosis history');
+        // Redirect to login after a short delay
+        setTimeout(() => router.push('/login'), 2000);
+      } else {
+        setError('Failed to load diagnosis history. Please try again.');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Filter and sort history
   useEffect(() => {
     let filtered = history.filter(entry => 
-      entry.originalQuery.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (entry.originalQuery || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
       entry.symptoms.some(symptom => 
         symptom.toLowerCase().includes(searchTerm.toLowerCase())
       )
@@ -86,18 +125,32 @@ const HistoryPage: React.FC = () => {
     setFilteredHistory(filtered);
   }, [history, searchTerm, sortBy, filterBy]);
 
-  const clearHistory = () => {
-    if (confirm('Are you sure you want to clear all history?')) {
-      setHistory([]);
-      setFilteredHistory([]);
-      localStorage.removeItem('mednex-history');
+  const clearHistory = async () => {
+    if (confirm('Are you sure you want to clear all history? This will delete all your diagnosis records.')) {
+      try {
+        // Delete all entries from backend
+        for (const entry of history) {
+          await deleteDiagnosis(entry.id);
+        }
+        setHistory([]);
+        setFilteredHistory([]);
+      } catch (err) {
+        console.error('Failed to clear history:', err);
+        alert('Failed to clear history. Please try again.');
+      }
     }
   };
 
-  const deleteEntry = (id: string) => {
-    const updatedHistory = history.filter(entry => entry.id !== id);
-    setHistory(updatedHistory);
-    localStorage.setItem('mednex-history', JSON.stringify(updatedHistory));
+  const deleteEntry = async (id: string) => {
+    try {
+      await deleteDiagnosis(id);
+      const updatedHistory = history.filter(entry => entry.id !== id);
+      setHistory(updatedHistory);
+      setFilteredHistory(filteredHistory.filter(entry => entry.id !== id));
+    } catch (err) {
+      console.error('Failed to delete entry:', err);
+      alert('Failed to delete entry. Please try again.');
+    }
   };
 
   const exportHistory = () => {
@@ -145,7 +198,7 @@ const HistoryPage: React.FC = () => {
     // Most common predictions
     const predictionFrequency: Record<string, number> = {};
     history.forEach(entry => {
-      entry.predictions.forEach(prediction => {
+      entry.predicted_diseases.forEach((prediction: any) => {
         predictionFrequency[prediction.name] = (predictionFrequency[prediction.name] || 0) + 1;
       });
     });
@@ -169,7 +222,7 @@ const HistoryPage: React.FC = () => {
       topPredictions,
       dayActivity,
       avgSymptoms: Math.round(history.reduce((acc, entry) => acc + entry.symptoms.length, 0) / history.length),
-      avgPredictions: Math.round(history.reduce((acc, entry) => acc + entry.predictions.length, 0) / history.length)
+      avgPredictions: Math.round(history.reduce((acc, entry) => acc + entry.predicted_diseases.length, 0) / history.length)
     };
   };
 
@@ -503,7 +556,25 @@ const HistoryPage: React.FC = () => {
         )}
 
         {/* History Entries */}
-        {filteredHistory.length === 0 ? (
+        {loading ? (
+          <div className="glass-card rounded-2xl p-12 text-center">
+            <Loader2 className="h-16 w-16 text-blue-300 mx-auto mb-4 animate-spin" />
+            <h3 className="text-xl font-semibold text-white mb-2">Loading History...</h3>
+            <p className="text-white">Please wait while we fetch your diagnosis history.</p>
+          </div>
+        ) : error ? (
+          <div className="glass-card rounded-2xl p-12 text-center">
+            <AlertCircle className="h-16 w-16 text-red-300 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-white mb-2">Error Loading History</h3>
+            <p className="text-white mb-4">{error}</p>
+            <button
+              onClick={fetchHistory}
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+            >
+              Try Again
+            </button>
+          </div>
+        ) : filteredHistory.length === 0 ? (
           <div className="glass-card rounded-2xl p-12 text-center">
             <History className="h-16 w-16 text-blue-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">
@@ -595,12 +666,12 @@ const HistoryPage: React.FC = () => {
                       <Brain className="h-5 w-5 text-green-600" />
                       <h4 className="text-lg font-bold text-gray-900">Top Predictions</h4>
                       <span className="px-2 py-1 bg-green-500 bg-opacity-20 text-green-700 rounded-full text-xs font-medium">
-                        {entry.predictions.length}
+                        {entry.predicted_diseases.length}
                       </span>
                     </div>
-                    {entry.predictions.length > 0 ? (
+                    {entry.predicted_diseases.length > 0 ? (
                       <div className="space-y-3">
-                        {entry.predictions.slice(0, 3).map((prediction, idx) => (
+                        {entry.predicted_diseases.slice(0, 3).map((prediction: any, idx: number) => (
                           <div key={idx} className="flex items-center justify-between bg-white bg-opacity-20 rounded-lg p-3 border border-white border-opacity-10">
                             <div className="flex items-center space-x-3">
                               <div className="w-6 h-6 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center">
@@ -624,9 +695,9 @@ const HistoryPage: React.FC = () => {
                             </div>
                           </div>
                         ))}
-                        {entry.predictions.length > 3 && (
+                        {entry.predicted_diseases.length > 3 && (
                           <div className="text-center text-gray-900 text-sm font-medium">
-                            +{entry.predictions.length - 3} more predictions
+                            +{entry.predicted_diseases.length - 3} more predictions
                           </div>
                         )}
                       </div>
@@ -642,6 +713,13 @@ const HistoryPage: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
-export default HistoryPage;
+// Wrap with ProtectedRoute to require authentication
+export default function HistoryPage() {
+  return (
+    <ProtectedRoute>
+      <HistoryPageContent />
+    </ProtectedRoute>
+  );
+}

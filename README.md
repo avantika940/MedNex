@@ -8,53 +8,92 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Next.js](https://img.shields.io/badge/Next.js-14+-black?logo=next.js&logoColor=white)](https://nextjs.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Latest-green?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?logo=mongodb&logoColor=white)](https://mongodb.com)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **🩺 Educational AI-powered medical symptom checker with conversational AI and knowledge graph visualization**
 
-[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-documentation) • [🧪 Demo](#-demo) • [🤝 Contributing](#-contributing)
+[🚀 Quick Start](#-quick-start) • [📖 Features](#-features) • [🏗️ Architecture](#️-architecture) • [🤝 Contributing](#-contributing)
 
 </div>
 
-MedNex is an educational AI-powered medical symptom checker that uses advanced natural language processing and machine learning to help users understand potential relationships between symptoms and medical conditions. It features conversational AI, interactive knowledge graph visualization, and comprehensive disease prediction capabilities.
+---
 
 ## ⚠️ Important Medical Disclaimer
 
 **MedNex is an educational tool only and should never be used for medical diagnosis or as a substitute for professional medical advice. Always consult qualified healthcare professionals for proper medical evaluation, diagnosis, and treatment.**
 
+---
+
 ## 🎯 Features
 
+### 🤖 AI-Powered Analysis
 - **Conversational AI**: Natural language symptom collection using Groq LLaMA 3.2
-- **Medical Entity Extraction**: BioBERT-powered NER for accurate symptom identification
-- **Disease Prediction**: Advanced matching algorithms with confidence scoring
+- **Medical Entity Extraction**: BioBERT-powered NER for accurate symptom identification from text
+- **Disease Prediction**: Advanced matching algorithms with confidence scoring (256+ diseases)
+- **Intelligent Explanations**: Context-aware medical term explanations
+
+### 📊 Visualization & UI
 - **Interactive Knowledge Graph**: D3.js visualization of symptom-disease-treatment relationships
-- **Educational Content**: Detailed explanations of medical terms and conditions
-- **Responsive Design**: Modern, accessible UI with TailwindCSS
+- **Modern UI**: Responsive design with TailwindCSS and Next.js 14+
+- **Real-time Updates**: Live symptom analysis and disease predictions
+- **Accessible Design**: WCAG compliant with keyboard navigation
+
+### 🔐 User Management
+- **Role-Based Access Control**: Admin and customer user roles
+- **JWT Authentication**: Secure token-based authentication
+- **User Profiles**: Personal health history tracking
+- **Diagnosis History**: Save and review past diagnoses
+
+### 🗄️ Database
+- **MongoDB Atlas**: Cloud-native NoSQL database for scalability
+- **Full CRUD Operations**: Complete user and diagnosis management
+- **Indexed Collections**: Optimized queries for fast performance
+
+---
 
 ## ✅ Status
 
-**FULLY OPERATIONAL** - All components tested and validated (6/6 integration tests passed)
-- Backend API: Running on http://localhost:8000 ✅
-- Frontend App: Running on http://localhost:3000 ✅
-- BioBERT Model: Successfully loaded and functioning ✅
-- Full-stack integration: Complete and tested ✅
+**FULLY OPERATIONAL** ✅
+- ✅ Backend API: Running on http://localhost:8000
+- ✅ Frontend App: Running on http://localhost:3000
+- ✅ BioBERT Model: Successfully loaded and functioning
+- ✅ MongoDB Atlas: Connected and operational
+- ✅ Authentication System: JWT-based auth working
+- ✅ All CRUD Operations: Tested and validated
+
+---
 
 ## 🏗️ Architecture
 
-### Frontend (Next.js)
-- **Framework**: Next.js 14+ with App Router
-- **Language**: TypeScript with strict mode
-- **Styling**: TailwindCSS
-- **Visualization**: D3.js for interactive graphs
-- **HTTP Client**: Axios with error handling
+### Frontend Stack
+- **Framework**: Next.js 14+ with App Router & TypeScript
+- **Styling**: TailwindCSS with custom components
+- **Visualization**: D3.js for interactive knowledge graphs
+- **HTTP Client**: Axios with interceptors and error handling
 - **Icons**: Lucide React
+- **State Management**: React hooks
 
-### Backend (FastAPI)
-- **Framework**: FastAPI with Python 3.10+
-- **AI/ML**: Hugging Face Transformers (BioBERT), Groq LLaMA API
-- **Database**: Supabase PostgreSQL
-- **Graph Processing**: NetworkX
-- **Deployment**: Optimized for Render
+### Backend Stack
+- **Framework**: FastAPI with Python 3.12+
+- **AI/ML Models**: 
+  - Hugging Face Transformers (BioBERT for NER)
+  - Groq LLaMA 3.2 (Conversational AI)
+- **Database**: MongoDB Atlas (Cloud)
+- **Authentication**: JWT with bcrypt password hashing
+- **Graph Processing**: NetworkX for knowledge graphs
+- **Data Processing**: Pandas, NumPy, scikit-learn
+
+### Database Schema (MongoDB)
+```
+Collections:
+├── users              # User accounts (admin, customer)
+├── diseases           # Disease information
+├── symptoms           # Symptom data
+└── diagnosis_history  # User diagnosis records
+```
+
+---
 
 ## 🚀 Quick Start
 
@@ -62,91 +101,93 @@ MedNex is an educational AI-powered medical symptom checker that uses advanced n
 
 - **Node.js 18+** and npm
 - **Python 3.10+** with pip
-- **Groq API key** (free tier available at [console.groq.com](https://console.groq.com))
-- **Supabase account** (optional - uses fallback data if not provided)
+- **Groq API key** - Get free tier at [console.groq.com](https://console.groq.com)
+- **MongoDB Atlas** - Free tier available at [mongodb.com/cloud/atlas](https://mongodb.com/cloud/atlas)
 
-### Backend Setup
+### 1️⃣ Backend Setup
 
-1. **Navigate to backend directory**
-   ```bash
-   cd mednex-backend
-   ```
-
-2. **Create and activate virtual environment**
-   ```bash
-   # Windows
-   python -m venv venv
-   venv\Scripts\activate
-   
-   # macOS/Linux
-   python -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure environment variables**
-   ```bash
-   # Copy template and edit with your values
-   copy .env.example .env        # Windows
-   cp .env.example .env          # macOS/Linux
-   
-   # Edit .env file with your Groq API key
-   ```
-
-5. **Start the development server**
-   ```bash
-   uvicorn main:app --reload
-   ```
-   
-   🌐 Backend will be available at: `http://localhost:8000`  
-   📚 API Documentation: `http://localhost:8000/docs`
-
-### Frontend Setup
-
-1. **Navigate to frontend directory**
-   ```bash
-   cd mednex-frontend
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Configure environment variables (optional)**
-   ```bash
-   # Copy template if you need custom configuration
-   copy .env.local.example .env.local    # Windows
-   cp .env.local.example .env.local      # macOS/Linux
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-   
-   🌐 Frontend will be available at: `http://localhost:3000`
-
-### 🎯 Quick Setup (Automated)
-
-For a faster setup, use our automated scripts:
-
-**Windows:**
-```batch
-scripts\setup.bat
-```
-
-**macOS/Linux:**
 ```bash
-chmod +x scripts/setup.sh
-./scripts/setup.sh
+# Navigate to backend directory
+cd mednex-backend
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-Then start both servers using the VS Code task or manually as described above.
+### 2️⃣ Configure Environment Variables
+
+Create `.env` file in `mednex-backend/`:
+
+```properties
+# Groq API Configuration
+GROQ_API_KEY=your_groq_api_key_here
+
+# MongoDB Atlas Configuration
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/?appName=mednex
+MONGODB_DB_NAME=mednex
+
+# JWT Configuration
+SECRET_KEY=your-super-secret-key-change-this-in-production
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=1440
+
+# API Configuration
+DATASET_PATH=./data/disease_symptom_dataset.csv
+CORS_ORIGINS=http://localhost:3000,https://your-production-url.com
+```
+
+**Important:** If your MongoDB password contains special characters, URL-encode them:
+- `!` → `%21`
+- `@` → `%40`
+- `#` → `%23`
+
+### 3️⃣ Create Admin User
+
+```bash
+# Make sure you're in mednex-backend directory
+python create_admin.py
+```
+
+Default credentials:
+- **Email**: admin@mednex.com
+- **Password**: Admin123!
+
+### 4️⃣ Start Backend Server
+
+```bash
+# From mednex-backend directory
+uvicorn main:app --reload
+```
+
+🌐 Backend available at: http://localhost:8000  
+📚 API Docs: http://localhost:8000/docs  
+📖 ReDoc: http://localhost:8000/redoc
+
+### 5️⃣ Frontend Setup
+
+```bash
+# Navigate to frontend directory
+cd mednex-frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+🌐 Frontend available at: http://localhost:3000
+
+---
 
 ## 📁 Project Structure
 
@@ -155,214 +196,274 @@ mednex/
 ├── mednex-backend/                 # FastAPI Backend
 │   ├── main.py                    # Application entry point
 │   ├── routers/                   # API route handlers
-│   │   ├── symptoms.py           # Symptom extraction endpoints
-│   │   ├── prediction.py         # Disease prediction endpoints
-│   │   ├── graph.py              # Knowledge graph endpoints
-│   │   ├── explanation.py        # Term explanation endpoints
-│   │   └── chat.py               # Conversational AI endpoints
+│   │   ├── auth.py               # Authentication endpoints
+│   │   ├── admin.py              # Admin management
+│   │   ├── customer.py           # Customer endpoints
+│   │   ├── symptoms.py           # Symptom extraction
+│   │   ├── prediction.py         # Disease prediction
+│   │   ├── graph.py              # Knowledge graph generation
+│   │   ├── explanation.py        # Medical explanations
+│   │   └── chat.py               # Conversational AI
 │   ├── models/                    # AI/ML model integrations
 │   │   ├── biobert_ner.py        # BioBERT entity extraction
-│   │   └── llama_reasoning.py    # Groq LLaMA integration
-│   ├── services/                  # Business logic services
+│   │   ├── llama_reasoning.py    # Groq LLaMA integration
+│   │   └── user.py               # User data models
+│   ├── services/                  # Business logic
 │   │   ├── disease_matcher.py    # Disease matching algorithms
 │   │   └── graph_builder.py      # NetworkX graph construction
-│   ├── database/                  # Database connections
-│   │   └── supabase_client.py    # Supabase client
-│   ├── data/                      # Dataset and static data
+│   ├── database/                  # Database layer
+│   │   └── mongodb_client.py     # MongoDB Atlas client
+│   ├── utils/                     # Utilities
+│   │   └── auth.py               # JWT & password utilities
+│   ├── data/                      # Datasets
 │   │   └── disease_symptom_dataset.csv
 │   ├── requirements.txt           # Python dependencies
-│   ├── render.yaml               # Render deployment config
-│   └── .env.example              # Environment variables template
+│   ├── create_admin.py           # Admin user creation script
+│   └── .env                       # Environment variables
 │
 ├── mednex-frontend/               # Next.js Frontend
 │   ├── app/                       # Next.js App Router
-│   │   ├── page.tsx              # Main application page
-│   │   ├── layout.tsx            # Root layout component
-│   │   └── globals.css           # Global styles
+│   │   ├── page.tsx              # Homepage
+│   │   ├── layout.tsx            # Root layout
+│   │   ├── globals.css           # Global styles
+│   │   ├── login/                # Login page
+│   │   ├── diagnosis/            # Diagnosis interface
+│   │   ├── history/              # Diagnosis history
+│   │   ├── admin/                # Admin dashboard
+│   │   └── settings/             # User settings
 │   ├── components/                # React components
 │   │   ├── ChatInterface.tsx     # Conversational UI
-│   │   ├── KnowledgeGraph.tsx    # D3.js graph visualization
-│   │   ├── ResultsDisplay.tsx    # Disease predictions display
-│   │   └── ExplanationPanel.tsx  # Medical term explanations
-│   ├── lib/                       # Utility libraries
-│   │   ├── api.ts                # API client functions
-│   │   └── types.ts              # TypeScript definitions
+│   │   ├── KnowledgeGraph.tsx    # D3.js visualization
+│   │   ├── ResultsDisplay.tsx    # Results display
+│   │   ├── ExplanationPanel.tsx  # Explanations
+│   │   └── Navigation.tsx        # Navigation component
+│   ├── lib/                       # Utilities
+│   │   ├── api.ts                # API client
+│   │   ├── auth.ts               # Auth utilities
+│   │   ├── admin-api.ts          # Admin API calls
+│   │   ├── customer-api.ts       # Customer API calls
+│   │   └── types.ts              # TypeScript types
 │   ├── package.json              # Node.js dependencies
-│   └── .env.local.example        # Environment variables template
+│   └── next.config.ts            # Next.js configuration
 │
-└── .github/
-    └── copilot-instructions.md    # GitHub Copilot configuration
+├── scripts/                       # Utility scripts
+│   ├── setup.bat                 # Windows setup script
+│   └── setup.sh                  # Unix setup script
+│
+├── LICENSE                        # MIT License
+└── README.md                      # This file
 ```
-
-## 🔧 API Endpoints
-
-### Core Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/extract_symptoms` | Extract medical entities from text |
-| `POST` | `/api/predict` | Predict diseases from symptoms |
-| `POST` | `/api/graph` | Generate knowledge graph |
-| `POST` | `/api/chat` | Conversational AI interaction |
-| `GET`  | `/api/explain/{term}` | Get medical term explanation |
-
-### Health Check
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET`  | `/health` | API health status |
-| `GET`  | `/` | API information |
-
-## 📚 Documentation
-
-- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to MedNex
-- **[License](LICENSE)** - MIT License with medical disclaimer
-
-## 🧪 Testing
-
-Run the complete integration test suite:
-
-```bash
-python scripts/test_integration.py --verbose
-```
-
-This will test all API endpoints, frontend-backend integration, and core functionality.
-
-## 🧠 AI/ML Components
-
-### BioBERT NER (Named Entity Recognition)
-- **Model**: `dmis-lab/biobert-v1.1`
-- **Purpose**: Extract medical entities (symptoms, diseases, body parts)
-- **Fallback**: Rule-based extraction for reliability
-
-### Groq LLaMA Conversational AI
-- **Model**: `llama-3.2-90b-text-preview`
-- **Purpose**: Natural language symptom collection and follow-up questions
-- **Features**: Context awareness, empathetic responses, medical disclaimers
-
-### Disease Matching Algorithm
-- **Method**: Symptom overlap analysis with confidence scoring
-- **Scoring**: Percentage match based on symptom intersection
-- **Confidence Levels**: High (70%+), Medium (40-69%), Low (<40%)
-
-## 📊 Knowledge Graph Visualization
-
-The interactive D3.js knowledge graph displays:
-- **Blue nodes**: Symptoms
-- **Red nodes**: Diseases  
-- **Green nodes**: Treatments
-- **Edge weights**: Relationship strength
-- **Interactions**: Drag, zoom, hover, click for details
-
-## 🛠️ Development
-
-### Running Tests
-```bash
-# Backend tests (if implemented)
-cd mednex-backend
-python -m pytest
-
-# Frontend tests (if implemented)
-cd mednex-frontend
-npm test
-```
-
-### Code Quality
-- **TypeScript**: Strict mode enabled
-- **ESLint**: Configured for Next.js
-- **Error Handling**: Comprehensive error boundaries
-- **Logging**: Structured logging throughout
-
-### Performance Optimizations
-- Model caching for BioBERT
-- Connection pooling for database
-- Request debouncing on frontend
-- Lazy loading for heavy components
-- React.memo for expensive renders
-
-## 🚀 Deployment
-
-### Frontend (Vercel)
-1. Connect your GitHub repository to Vercel
-2. Set environment variable: `NEXT_PUBLIC_API_URL=https://your-backend-url`
-3. Deploy automatically on push to main branch
-
-### Backend (Render)
-1. Connect your GitHub repository to Render
-2. Use the provided `render.yaml` configuration
-3. Set environment variables in Render dashboard:
-   - `GROQ_API_KEY`
-   - `SUPABASE_URL` (optional)
-   - `SUPABASE_KEY` (optional)
-
-## 🔐 Environment Variables
-
-### Backend (.env)
-```env
-GROQ_API_KEY=your_groq_api_key_here
-HUGGINGFACE_TOKEN=your_hf_token_here          # Optional
-SUPABASE_URL=your_supabase_url_here           # Optional
-SUPABASE_KEY=your_supabase_anon_key_here      # Optional
-DATASET_PATH=./data/disease_symptom_dataset.csv
-CORS_ORIGINS=http://localhost:3000,https://your-vercel-app.vercel.app
-```
-
-### Frontend (.env.local)
-```env
-NEXT_PUBLIC_API_URL=https://your-render-backend.onrender.com
-```
-
-## 📈 Dataset
-
-The application uses a curated disease-symptom dataset including:
-- 15+ common medical conditions
-- Multiple symptoms per disease
-- Treatment recommendations
-- Severity levels
-
-**Note**: The dataset is for educational purposes and should not be used for medical diagnosis.
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for detailed information.
-
-### Quick Start for Contributors
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Make your changes following our coding standards
-4. Run tests and ensure they pass
-5. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-6. Push to the branch (`git push origin feature/AmazingFeature`)
-7. Open a Pull Request
-
-### Contribution Guidelines
-- Follow our [code standards](CONTRIBUTING.md#-coding-standards)
-- Maintain the educational focus of the project
-- Include comprehensive tests for new features
-- Update documentation as needed
-- Ensure all medical disclaimers remain prominent
-
-## 📄 License
-
-This project is created for educational purposes. Please ensure compliance with medical data regulations and AI service terms of use when deploying.
-
-## 🆘 Support
-
-For questions or issues:
-1. Check the documentation and README
-2. Search existing GitHub issues
-3. Create a new issue with detailed description
-4. For medical emergencies, contact healthcare professionals immediately
-
-## 🙏 Acknowledgments
-
-- **Hugging Face** for BioBERT and Transformers library
-- **Groq** for LLaMA API access
-- **Supabase** for database services
-- **Vercel** and **Render** for deployment platforms
-- **D3.js** community for visualization examples
-- Medical datasets and research communities
 
 ---
 
-**Remember**: This is an educational tool, not a medical diagnostic system. Always consult healthcare professionals for medical advice.
+## 🔧 API Endpoints
+
+### Authentication (`/api/auth`)
+- `POST /api/auth/login` - User login (returns JWT token)
+- `POST /api/auth/register` - Register new user
+
+### Admin Management (`/api/admin`)
+- `GET /api/admin/profile` - Get admin profile
+- `PUT /api/admin/profile` - Update admin profile
+- `GET /api/admin/users` - List all users
+- `POST /api/admin/users` - Create new user
+- `PUT /api/admin/users/{user_id}` - Update user
+- `DELETE /api/admin/users/{user_id}` - Delete user
+
+### Customer (`/api/customer`)
+- `GET /api/customer/profile` - Get customer profile
+- `PUT /api/customer/profile` - Update customer profile
+- `GET /api/customer/diagnosis-history` - Get diagnosis history
+- `POST /api/customer/diagnosis-history` - Save diagnosis
+
+### Symptom Analysis
+- `POST /api/extract-symptoms` - Extract symptoms from text using BioBERT
+- `POST /api/predict` - Predict diseases from symptoms
+- `POST /api/generate-graph` - Generate knowledge graph
+- `POST /api/explain` - Get medical term explanations
+- `POST /api/chat` - Conversational AI interface
+
+### Utility
+- `GET /` - API information
+- `GET /health` - Health check endpoint
+
+---
+
+## 🧪 Testing
+
+### Backend Testing
+
+```bash
+# From mednex-backend directory
+
+# Test MongoDB connection
+python test_mongodb_connection.py
+
+# Create test users
+python create_test_users.py
+
+# Run backend tests
+python test_backend.py
+```
+
+### Frontend Testing
+
+```bash
+# From mednex-frontend directory
+npm run build
+npm run test
+```
+
+### Integration Testing
+
+```bash
+# Test full stack integration
+python scripts/test_integration.py
+```
+
+---
+
+## 📊 Default Credentials
+
+### Admin Account
+- **Email**: admin@mednex.com
+- **Password**: Admin123!
+- **Access**: http://localhost:3000/admin/login
+
+### Customer Account
+- **Email**: customer@mednex.com
+- **Password**: Customer123!
+- **Access**: http://localhost:3000/login
+
+⚠️ **Change these passwords in production!**
+
+---
+
+## 🚢 Deployment
+
+### Frontend (Vercel)
+
+```bash
+# Deploy to Vercel
+cd mednex-frontend
+vercel deploy --prod
+```
+
+Update `CORS_ORIGINS` in backend `.env` with your Vercel URL.
+
+### Backend (Render/Railway)
+
+1. Connect your GitHub repository
+2. Set environment variables in platform dashboard
+3. Deploy using `requirements.txt`
+4. Set build command: `pip install -r requirements.txt`
+5. Set start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend Technologies
+- Next.js 14+
+- TypeScript
+- TailwindCSS
+- D3.js
+- Axios
+- Lucide React Icons
+
+### Backend Technologies
+- FastAPI
+- Python 3.12+
+- PyTorch
+- Transformers (Hugging Face)
+- Groq API (LLaMA 3.2)
+- MongoDB Atlas
+- PyMongo
+- NetworkX
+- Pandas & NumPy
+- JWT Authentication
+- Bcrypt
+
+### Development Tools
+- ESLint & Prettier
+- Python Black
+- Git & GitHub
+- VS Code
+- Postman (API testing)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Coding Standards
+- Follow PEP 8 for Python
+- Use ESLint rules for TypeScript
+- Write meaningful commit messages
+- Add comments for complex logic
+- Include tests for new features
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Hugging Face** for BioBERT and transformers library
+- **Groq** for LLaMA API access
+- **MongoDB Atlas** for cloud database hosting
+- **FastAPI** for the excellent API framework
+- **Next.js** team for the amazing React framework
+- **D3.js** for powerful data visualization
+
+---
+
+## 📧 Contact
+
+For questions, suggestions, or issues, please open an issue on GitHub.
+
+---
+
+## 🔒 Security
+
+- Never commit `.env` files or API keys
+- Change default passwords immediately
+- Use strong passwords for MongoDB users
+- Enable IP whitelisting in MongoDB Atlas
+- Keep dependencies updated
+- Use HTTPS in production
+- Implement rate limiting for production APIs
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Multi-language support
+- [ ] Voice input for symptoms
+- [ ] Mobile app (React Native)
+- [ ] Integration with wearable devices
+- [ ] Telemedicine booking integration
+- [ ] Advanced analytics dashboard
+- [ ] PDF report generation
+- [ ] Email notifications
+
+---
+
+<div align="center">
+
+**Made with ❤️ for educational purposes**
+
+⭐ Star this repository if you find it helpful!
+
+</div>

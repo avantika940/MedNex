@@ -10,6 +10,7 @@ dist/
 downloads/
 eggs/
 .eggs/
+lib/
 lib64/
 parts/
 sdist/
@@ -88,10 +89,15 @@ models/cache/
 # Jupyter Notebooks
 .ipynb_checkpoints
 
-# Python lib directories (be specific, not broad)
-mednex-backend/lib/
-**/site-packages/
-**/Lib/
+# MongoDB Credentials
+MONGODB_CREDENTIALS.txt
+**/MONGODB_CREDENTIALS.txt
 
-# Explicitly allow frontend lib
-!mednex-frontend/lib/
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Test files
+test_*.ps1
+test_mongodb_connection.py

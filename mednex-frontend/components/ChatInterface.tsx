@@ -9,8 +9,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, AlertTriangle } from 'lucide-react';
-import { api } from '../lib/api';
-import { ChatMessage, ChatResponse, ApiError } from '../lib/types';
+import { api } from '@/lib/api';
+import { ChatMessage, ChatResponse, ApiError } from '@/lib/types';
 
 interface ChatInterfaceProps {
   onSymptomsUpdate: (symptoms: string[]) => void;
@@ -21,13 +21,8 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   onSymptomsUpdate, 
   onPredictionsUpdate 
 }) => {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: 'assistant',
-      content: 'Hello! I\'m here to help you understand your symptoms. Please describe how you\'re feeling, and I\'ll ask some follow-up questions to better understand your condition. Remember, this is for educational purposes only and not a substitute for professional medical advice.',
-      timestamp: new Date().toISOString()
-    }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [isInitialized, setIsInitialized] = useState(false);
   
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +33,20 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  // Initialize messages only on client side
+  useEffect(() => {
+    if (!isInitialized) {
+      setMessages([
+        {
+          role: 'assistant',
+          content: 'Hello! I\'m here to help you understand your symptoms. Please describe how you\'re feeling, and I\'ll ask some follow-up questions to better understand your condition. Remember, this is for educational purposes only and not a substitute for professional medical advice.',
+          timestamp: new Date().toISOString()
+        }
+      ]);
+      setIsInitialized(true);
+    }
+  }, [isInitialized]);
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
